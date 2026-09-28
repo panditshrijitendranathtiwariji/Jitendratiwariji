@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7a3215">
+<title>पंडित श्री जितेंद्र नाथ तिवारी जी | वैदिक कर्मकांड एवं पूजा सेवा</title>
+<style>
+:root{
+  --brown:#7b3517; --brown2:#9b4b24; --cream:#fffaf1; --gold:#c99a3b;
+  --text:#30231d; --muted:#75665e; --line:#eadfd2; --white:#fff;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari","Segoe UI",sans-serif;color:var(--text);background:#fff}
+a{text-decoration:none;color:inherit}
+.container{width:min(1180px,92%);margin:auto}
+.topbar{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.nav{height:70px;display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid #eee}
+.brand strong{font-size:17px;white-space:nowrap}
+.brand small{display:block;color:var(--muted);font-size:11px}
+.navlinks{display:flex;gap:8px;margin-left:auto;align-items:center}
+.navlinks a,.puja-menu{padding:10px 12px;border-radius:10px;font-size:14px;font-weight:600}
+.navlinks a:hover,.puja-menu:hover{background:#faf0e6}
+.puja-menu{border:0;background:transparent;color:var(--text);cursor:pointer}
+.icon-btn{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:#fff;display:grid;place-items:center;font-size:19px}
+.hero{background:var(--brown);overflow:hidden}
+.hero-wrap{position:relative}
+.hero-slider{position:relative;aspect-ratio:3/1;min-height:250px;overflow:hidden}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.hero-slide.active{opacity:1}
+.hero-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:3}
+.dot{width:8px;height:8px;border:0;border-radius:50%;background:#fff8;cursor:pointer}
+.dot.active{background:#fff}
+.search-area{background:#fff;padding:28px 0 12px}
+.searchbox{display:flex;max-width:760px;margin:auto;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 8px 28px #3a1b0d12}
+.searchbox input{flex:1;border:0;outline:0;padding:16px;font-size:15px}
+.searchbox button{border:0;background:var(--brown);color:#fff;padding:0 25px;font-weight:700}
+.section{padding:36px 0}
+.section h2{font-size:26px;margin:0 0 8px}
+.section-sub{color:var(--muted);margin:0 0 22px}
+.puja-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.puja-card{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 5px 18px #3a1b0d0b;transition:.2s;cursor:pointer}
+.puja-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px #3a1b0d15}
+.puja-card .pic{aspect-ratio:16/4;overflow:hidden;background:#f5eee7}
+.puja-card img{width:100%;height:100%;object-fit:cover;display:block}
+.puja-card .body{padding:14px}
+.puja-card h3{margin:0 0 6px;font-size:17px}
+.puja-card p{margin:0;color:var(--muted);font-size:13px;line-height:1.5}
+.puja-card .book{margin-top:12px;color:var(--brown);font-weight:800;font-size:13px}
+.about{background:#fffaf5}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center}
+.profile-box{border:1px solid var(--line);border-radius:18px;background:#fff;padding:24px;box-shadow:0 8px 25px #3a1b0d0b}
+.profile-box h2{margin-bottom:4px}.profile-box .title{color:var(--brown);font-weight:800}
+.features{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+.feature{padding:14px;border-radius:12px;background:#fff8ef;border:1px solid #f0dfcd}
+.contact{background:var(--brown);color:#fff}
+.contact .muted{color:#ead7cb}
+.contact-row{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.callbtn{background:#fff;color:var(--brown);padding:13px 20px;border-radius:11px;font-weight:800}
+footer{padding:24px 0;text-align:center;color:var(--muted);font-size:13px}
+.modal{position:fixed;inset:0;background:#1d0d0690;display:none;align-items:center;justify-content:center;padding:18px;z-index:100}
+.modal.show{display:flex}
+.modal-card{width:min(620px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 25px 70px #0004}
+.modal-head{padding:20px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:15px}
+.close{border:0;background:#f6eee8;width:38px;height:38px;border-radius:50%;font-size:20px;cursor:pointer}
+.selected{padding:18px 22px;background:#fff9f2}
+.selected strong{display:block;color:var(--brown);font-size:19px;margin-bottom:5px}
+form{padding:20px 22px}
+label{display:block;font-size:13px;font-weight:700;margin:0 0 6px}
+input,textarea{width:100%;padding:13px;border:1px solid #dccfc4;border-radius:10px;outline:none;font:inherit;margin-bottom:14px}
+input:focus,textarea:focus{border-color:var(--brown)}
+textarea{min-height:90px;resize:vertical}
+.submit{width:100%;padding:14px;border:0;border-radius:11px;background:#198754;color:#fff;font-weight:800;font-size:16px;cursor:pointer}
+.note{text-align:center;color:var(--muted);font-size:12px;margin-top:10px}
+.mobile-menu{display:none}
+@media(max-width:900px){
+ .navlinks{display:none}.mobile-menu{display:block;margin-left:auto}
+ .puja-grid{grid-template-columns:repeat(2,1fr)}
+ .about-grid{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+ .nav{height:62px}.brand strong{font-size:14px}.brand small{font-size:10px}
+ .hero-slider{aspect-ratio:3/1;min-height:150px}
+ .puja-grid{grid-template-columns:1fr 1fr;gap:10px}
+ .puja-card .body{padding:11px}.puja-card h3{font-size:14px}
+ .puja-card p{font-size:11px}
+ .section{padding:28px 0}.section h2{font-size:22px}
+ .features{grid-template-columns:1fr}
+ .contact-row{align-items:flex-start;flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#">
+      <img src="logo.jpg" alt="Logo">
+      <div><strong>पंडित श्री जितेंद्र नाथ तिवारी जी</strong><small>वैदिक कर्मकांड एवं पूजा सेवा</small></div>
+    </a>
+    <nav class="navlinks">
+      <a href="#puja">पूजा एवं कर्मकांड</a>
+      <a href="#about">पंडित जी के बारे में</a>
+      <a href="#contact">संपर्क</a>
+      <button class="puja-menu" onclick="openBooking('सामान्य वैदिक कर्मकांड')">पूजा बुक करें</button>
+      <a class="icon-btn" href="tel:+918651538338" aria-label="Call">☎</a>
+    </nav>
+    <button class="icon-btn mobile-menu" onclick="document.querySelector('.navlinks').classList.toggle('show')" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-wrap">
+    <div class="hero-slider" id="heroSlider">
+      <div class="hero-slide active"><img src="logo.jpg" alt="Pandit Shri Jitendra Nath Tiwari Ji"></div>
+      <div class="hero-slide"><img src="logo1.jpg" alt="Pandit Shri Jitendra Nath Tiwari Ji"></div>
+      <div class="hero-dots" id="heroDots"></div>
+    </div>
+  </div>
+</section>
+
+<section class="search-area">
+ <div class="container">
+  <div class="searchbox">
+   <input id="search" type="search" placeholder="पूजा या कर्मकांड खोजें..." oninput="filterPuja()">
+   <button>खोजें</button>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="puja">
+ <div class="container">
+  <h2>पूजा एवं वैदिक कर्मकांड</h2>
+  <p class="section-sub">अपनी आवश्यकता के अनुसार पूजा या संस्कार चुनें और सेवा के लिए अनुरोध भेजें।</p>
+  <div class="puja-grid" id="pujaGrid"></div>
+ </div>
+</section>
+
+<section class="section about" id="about">
+ <div class="container about-grid">
+  <div>
+   <h2>पंडित श्री जितेंद्र नाथ तिवारी जी</h2>
+   <p>वैदिक पूजा, संस्कार एवं कर्मकांड की सेवाएँ। उपलब्ध सेवा के अनुसार पूजा-विधि और आवश्यक सामग्री की जानकारी परामर्श के बाद साझा की जाएगी।</p>
+   <div class="features">
+    <div class="feature"><b>रुद्राभिषेक</b><br><span>शिवपूजन एवं अभिषेक सेवा</span></div>
+    <div class="feature"><b>वास्तु</b><br><span>वास्तु संबंधी परामर्श</span></div>
+    <div class="feature"><b>विवाह संस्कार</b><br><span>वैदिक विवाह कर्मकांड</span></div>
+    <div class="feature"><b>अनुष्ठान</b><br><span>विशेष वैदिक अनुष्ठान</span></div>
+   </div>
+  </div>
+  <div class="profile-box">
+   <h2>सेवा के लिए संपर्क</h2>
+   <div class="title">पंडित श्री जितेंद्र नाथ तिवारी जी</div>
+   <p>पूजा/कर्मकांड की तिथि, स्थान और आवश्यकता बताने के लिए सीधे संपर्क करें।</p>
+   <a class="callbtn" href="tel:+918651538338">📞 +91 86515 38338</a>
+  </div>
+ </div>
+</section>
+
+<section class="section contact" id="contact">
+ <div class="container contact-row">
+  <div><h2>पूजा बुकिंग के लिए संपर्क करें</h2><div class="muted">WhatsApp पर विवरण भेजकर सेवा के लिए अनुरोध करें।</div></div>
+  <a class="callbtn" href="tel:+918651538338">📞 +91 86515 38338</a>
+ </div>
+</section>
+</main>
+
+<footer>© <span id="year"></span> पंडित श्री जितेंद्र नाथ तिवारी जी · वैदिक कर्मकांड एवं पूजा सेवा</footer>
+
+<div class="modal" id="bookingModal" onclick="if(event.target===this)closeBooking()">
+ <div class="modal-card">
+  <div class="modal-head">
+   <div><strong>पूजा सेवा अनुरोध</strong><div class="note" style="text-align:left">WhatsApp पर आपकी जानकारी भेजी जाएगी</div></div>
+   <button class="close" onclick="closeBooking()">×</button>
+  </div>
+  <div class="selected">
+   <strong id="selectedPuja">रुद्राभिषेक</strong>
+   <span>आपने इस पूजा/कर्मकांड के लिए सेवा अनुरोध चुना है।</span>
+  </div>
+  <form onsubmit="sendWhatsApp(event)">
+   <label>आपका नाम</label>
+   <input id="name" required placeholder="पूरा नाम">
+   <label>मोबाइल नंबर</label>
+   <input id="mobile" required inputmode="tel" pattern="[0-9+\-\s]{10,16}" placeholder="मोबाइल नंबर">
+   <label>पता</label>
+   <textarea id="address" required placeholder="गाँव/शहर, जिला, राज्य आदि"></textarea>
+   <button class="submit" type="submit">WhatsApp पर अनुरोध भेजें</button>
+   <div class="note">पंडित जी आपके कॉल या उत्तर का इंतजार करेंगे।</div>
+  </form>
+ </div>
+</div>
+
+<script>
+const WA = "918651538338";
+
+const pujas = [
+ {name:"रुद्राभिषेक", img:"R1.jpg", desc:"भगवान शिव के रुद्राभिषेक की सेवा।"},
+ {name:"सत्यनारायण कथा", img:"S.jpg", desc:"सत्यनारायण भगवान की कथा एवं पूजन।"},
+ {name:"वास्तु", img:"W.jpg", desc:"वास्तु संबंधी परामर्श एवं आवश्यक पूजन।"},
+ {name:"गृहप्रवेश", img:"G.jpg", desc:"नवगृह में प्रवेश हेतु वैदिक पूजन।"},
+ {name:"शादी-विवाह", img:"S1.jpg", desc:"वैदिक विवाह संस्कार एवं कर्मकांड।"},
+ {name:"महा मृत्युंजय अनुष्ठान", img:"M.jpg", desc:"महा मृत्युंजय मंत्र आधारित विशेष अनुष्ठान।"},
+ {name:"नवग्रह शांति", img:"N.jpg", desc:"नवग्रह शांति हेतु वैदिक पूजन एवं अनुष्ठान।"},
+ {name:"अन्य वैदिक कर्मकांड", img:"AS.jpg", desc:"अन्य उपलब्ध वैदिक कर्मकांड के लिए संपर्क करें।"}
+];
+
+function renderPujas(list=pujas){
+ const grid=document.getElementById("pujaGrid");
+ grid.innerHTML=list.map((p,i)=>`
+  <article class="puja-card" onclick="openBooking('${p.name.replace(/'/g,"\\'")}')">
+   <div class="pic"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+   <div class="body"><h3>${p.name}</h3><p>${p.desc}</p><div class="book">सेवा के लिए अनुरोध →</div></div>
+  </article>`).join("");
+}
+function filterPuja(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+ renderPujas(pujas.filter(p=>(p.name+" "+p.desc).toLowerCase().includes(q)));
+}
+function openBooking(puja){
+ document.getElementById("selectedPuja").textContent=puja;
+ document.getElementById("bookingModal").classList.add("show");
+ document.body.style.overflow="hidden";
+}
+function closeBooking(){
+ document.getElementById("bookingModal").classList.remove("show");
+ document.body.style.overflow="";
+}
+function sendWhatsApp(e){
+ e.preventDefault();
+ const puja=document.getElementById("selectedPuja").textContent;
+ const name=document.getElementById("name").value.trim();
+ const mobile=document.getElementById("mobile").value.trim();
+ const address=document.getElementById("address").value.trim();
+
+ const msg =
+`ॐ नमः शिवाय 🙏
+
+पंडित श्री जितेंद्र नाथ तिवारी जी,
+मैं ${puja} के लिए आपकी सेवा चाहता/चाहती हूँ।
+
+पूजा / कर्मकांड: ${puja}
+नाम: ${name}
+मोबाइल नंबर: ${mobile}
+पता: ${address}
+
+कृपया पूजा की तिथि, समय, आवश्यक सामग्री एवं अन्य जानकारी के संबंध में मुझे कॉल या WhatsApp पर उत्तर दें।
+
+पंडित जी, आपके कॉल या reply का इंतजार रहेगा।`;
+
+ window.location.href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
+}
+document.getElementById("year").textContent=new Date().getFullYear();
+
+let hi=0;
+const hs=[...document.querySelectorAll(".hero-slide")];
+const dots=document.getElementById("heroDots");
+hs.forEach((_,i)=>{
+ const b=document.createElement("button"); b.className="dot"+(i===0?" active":"");
+ b.onclick=()=>showHero(i); dots.appendChild(b);
+});
+function showHero(i){
+ hi=i;
+ hs.forEach((s,n)=>s.classList.toggle("active",n===i));
+ [...dots.children].forEach((d,n)=>d.classList.toggle("active",n===i));
+}
+setInterval(()=>showHero((hi+1)%hs.length),5000);
+renderPujas();
+</script>
+</body>
+</html>
