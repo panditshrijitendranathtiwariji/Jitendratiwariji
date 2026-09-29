@@ -554,40 +554,142 @@
   <div class="about-grid">
     <div class="profile-container" data-aos="fade-right">
       <!-- FIVE-LAYER CONCENTRIC ROTATING ॐ RINGS -->
-      <div class="om-ring-container">
-        <div class="om-ring om-ring-1">
-          <div class="om-symbol-item" style="top:2%;left:48%;">ॐ</div>
-          <div class="om-symbol-item" style="top:25%;left:85%;">ॐ</div>
-          <div class="om-symbol-item" style="top:75%;left:85%;">ॐ</div>
-          <div class="om-symbol-item" style="top:94%;left:48%;">ॐ</div>
-          <div class="om-symbol-item" style="top:75%;left:12%;">ॐ</div>
-          <div class="om-symbol-item" style="top:25%;left:12%;">ॐ</div>
-        </div>
-        <div class="om-ring om-ring-2">
-          <div class="om-symbol-item" style="top:5%;left:70%;">ॐ</div>
-          <div class="om-symbol-item" style="top:50%;left:93%;">ॐ</div>
-          <div class="om-symbol-item" style="top:90%;left:70%;">ॐ</div>
-          <div class="om-symbol-item" style="top:90%;left:25%;">ॐ</div>
-          <div class="om-symbol-item" style="top:50%;left:5%;">ॐ</div>
-          <div class="om-symbol-item" style="top:5%;left:25%;">ॐ</div>
-        </div>
-        <div class="om-ring om-ring-3">
-          <div class="om-symbol-item" style="top:12%;left:50%;">ॐ</div>
-          <div class="om-symbol-item" style="top:45%;left:88%;">ॐ</div>
-          <div class="om-symbol-item" style="top:85%;left:50%;">ॐ</div>
-          <div class="om-symbol-item" style="top:45%;left:10%;">ॐ</div>
-        </div>
-        <div class="om-ring om-ring-4">
-          <div class="om-symbol-item" style="top:8%;left:80%;">ॐ</div>
-          <div class="om-symbol-item" style="top:80%;left:80%;">ॐ</div>
-          <div class="om-symbol-item" style="top:80%;left:20%;">ॐ</div>
-          <div class="om-symbol-item" style="top:8%;left:20%;">ॐ</div>
-        </div>
-        <div class="om-ring om-ring-5">
-          <div class="om-symbol-item" style="top:20%;left:50%;">ॐ</div>
-          <div class="om-symbol-item" style="top:80%;left:50%;">ॐ</div>
-        </div>
-      </div>
+      <div class="om-ring-container" id="omRings"></div>
+
+<style>
+.om-ring-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+}
+
+/* हर ring center में */
+.om-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: omRotate;
+}
+
+.om-symbol-item {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* Ring sizes */
+.om-ring-1 {
+  width: 100%;
+  height: 100%;
+  animation-duration: 30s;
+}
+
+.om-ring-2 {
+  width: 80%;
+  height: 80%;
+  animation-duration: 25s;
+  animation-direction: reverse;
+}
+
+.om-ring-3 {
+  width: 60%;
+  height: 60%;
+  animation-duration: 20s;
+}
+
+.om-ring-4 {
+  width: 40%;
+  height: 40%;
+  animation-duration: 15s;
+  animation-direction: reverse;
+}
+
+.om-ring-5 {
+  width: 22%;
+  height: 22%;
+  animation-duration: 10s;
+}
+
+/* Rotation */
+@keyframes omRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+  .om-ring-container {
+    width: 320px;
+    height: 320px;
+  }
+
+  .om-symbol-item {
+    font-size: 13px;
+  }
+}
+</style>
+
+<script>
+const container = document.getElementById("omRings");
+
+/*
+  बाहर से अंदर:
+  51 → 41 → 31 → 21 → 11
+*/
+const ringData = [
+  { count: 51, size: 100 },
+  { count: 41, size: 80 },
+  { count: 31, size: 60 },
+  { count: 21, size: 40 },
+  { count: 11, size: 22 }
+];
+
+ringData.forEach((data, ringIndex) => {
+
+  const ring = document.createElement("div");
+
+  ring.className = `om-ring om-ring-${ringIndex + 1}`;
+
+  ring.style.width = data.size + "%";
+  ring.style.height = data.size + "%";
+
+  for (let i = 0; i < data.count; i++) {
+
+    const om = document.createElement("div");
+
+    om.className = "om-symbol-item";
+    om.textContent = "ॐ";
+
+    /*
+      हर Om को circle पर बिल्कुल बराबर दूरी
+      पर रखना
+    */
+    const angle = (360 / data.count) * i - 90;
+
+    const x = 50 + 50 * Math.cos(angle * Math.PI / 180);
+    const y = 50 + 50 * Math.sin(angle * Math.PI / 180);
+
+    om.style.left = x + "%";
+    om.style.top = y + "%";
+
+    ring.appendChild(om);
+  }
+
+  container.appendChild(ring);
+});
+</script>
       
       <div class="about-photo">
         <img src="icon.jpg" alt="Pandit Shri Jitendra Nath Tiwari" loading="lazy">
@@ -649,7 +751,7 @@
       <div class="card-img-container">
         <div class="card-slider" id="slider-rudrabhishek">
           <div class="card-slide"><img src="R1.jpg" alt="Rudrabhishek" loading="lazy"></div>
-          <div class="card-slide"><img src="1000300640.jpg" alt="Rudrabhishek Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="R1.jpg" alt="Rudrabhishek Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-rudrabhishek', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-rudrabhishek', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -680,7 +782,7 @@
       <div class="card-img-container">
         <div class="card-slider" id="slider-satyanarayan">
           <div class="card-slide"><img src="S.jpg" alt="Satyanarayan Katha" loading="lazy"></div>
-          <div class="card-slide"><img src="1000300640.jpg" alt="Satyanarayan Katha Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="S.jpg" alt="Satyanarayan Katha Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-satyanarayan', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-satyanarayan', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -711,7 +813,7 @@
       <div class="card-img-container">
         <div class="card-slider" id="slider-grihpravesh">
           <div class="card-slide"><img src="G.jpg" alt="Grihpravesh" loading="lazy"></div>
-          <div class="card-slide"><img src="1000300640.jpg" alt="Grihpravesh Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="G.jpg" alt="Grihpravesh Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-grihpravesh', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-grihpravesh', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -742,8 +844,8 @@
       <div class="card-img-container">
         <div class="card-slider" id="slider-vivah">
           <div class="card-slide"><img src="S1.jpg" alt="Shadi Vivah Ritual 1" loading="lazy"></div>
-          <div class="card-slide"><img src="S1.jpg" alt="Shadi Vivah Ritual 2" loading="lazy"></div>
-          <div class="card-slide"><img src="1000300640.jpg" alt="Shadi Vivah Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="S2.jpg" alt="Shadi Vivah Ritual 2" loading="lazy"></div>
+          <div class="card-slide"><img src="S1.jpg" alt="Shadi Vivah Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-vivah', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-vivah', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -774,7 +876,7 @@
       <div class="card-img-container">
         <div class="card-slider" id="slider-mahamrityunjay">
           <div class="card-slide"><img src="M.jpg" alt="Mahamrityunjay Anusthan" loading="lazy"></div>
-          <div class="card-slide"><img src="1000300640.jpg" alt="Mahamrityunjay Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="M.jpg" alt="Mahamrityunjay Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-mahamrityunjay', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-mahamrityunjay', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -804,7 +906,7 @@
       <div class="card-img-container">
         <div class="card-slider" id="slider-navgrah">
           <div class="card-slide"><img src="N.jpg" alt="Navgrah Shanti" loading="lazy"></div>
-          <div class="card-slide"><img src="1000300640.jpg" alt="Navgrah Shanti Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="N.jpg" alt="Navgrah Shanti Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-navgrah', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-navgrah', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -833,7 +935,7 @@
     <div class="card" data-aos="fade-up">
       <div class="card-img-container">
         <div class="card-slider" id="slider-ashtayam">
-          <div class="card-slide"><img src="1000300630.jpg" alt="Ashtayam Hari Kirtan" loading="lazy"></div>
+          <div class="card-slide"><img src="AS.jpg" alt="Ashtayam Hari Kirtan" loading="lazy"></div>
           <div class="card-slide"><img src="AS.jpg" alt="Ashtayam" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-ashtayam', -1)"><i class="fa-solid fa-chevron-left"></i></button>
@@ -864,7 +966,7 @@
       <div class="card-img-container">
         <div class="card-slider" id="slider-other">
           <div class="card-slide"><img src="A.jpg" alt="Other Vedic Karmakand" loading="lazy"></div>
-          <div class="card-slide"><img src="1000300640.jpg" alt="Other Vedic Karmakand Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="A.jpg" alt="Other Vedic Karmakand Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-other', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-other', 1)"><i class="fa-solid fa-chevron-right"></i></button>
