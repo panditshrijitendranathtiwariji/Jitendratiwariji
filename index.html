@@ -111,7 +111,7 @@
     width:36px;height:36px;align-items:center;justify-content:center;z-index:260;position:relative;flex-shrink:0;
   }
 
-  /* SIDE DRAWER MOBILE MENU (Approx 50% width) */
+  /* SIDE DRAWER MOBILE MENU */
   .mobile-drawer-backdrop{
     position:fixed;inset:0;background:rgba(10,2,2,0.8);backdrop-filter:blur(6px);
     z-index:240;opacity:0;pointer-events:none;transition:opacity .3s ease;
@@ -152,10 +152,10 @@
     text-align:center;display:block;
   }
 
-  /* HERO SECTION (Landscape / Horizontal layout on Desktop) */
+  /* HERO SECTION: Full width touch from left to right */
   .hero{
-    position:relative;min-height:85vh;display:flex;flex-direction:column;align-items:center;
-    padding:clamp(90px, 14vw, 120px) 16px 50px;overflow:hidden;width:100%;max-width:100%;
+    position:relative;width:100%;max-width:100%;
+    padding:clamp(80px, 12vw, 110px) 0 30px;
     background:
       radial-gradient(circle at 80% 20%, rgba(212,164,55,0.16), transparent 55%),
       linear-gradient(180deg, var(--maroon) 0%, var(--maroon-deep) 75%);
@@ -177,16 +177,16 @@
   }
   
   .hero-content-wrapper{
-    max-width:1150px;margin:0 auto 30px;width:100%;position:relative;z-index:2;
-    display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;
+    max-width:1150px;margin:0 auto 20px;width:100%;padding:0 16px;position:relative;z-index:2;
+    display:grid;grid-template-columns:1fr;text-align:center;align-items:center;
   }
-  .hero-text-box{display:flex;flex-direction:column;text-align:left;}
+  .hero-text-box{display:flex;flex-direction:column;align-items:center;text-align:center;}
   .om{font-size:clamp(26px,4vw,36px);color:var(--gold-bright);margin-bottom:6px;}
   .eyebrow{color:var(--gold-bright);letter-spacing:2px;font-size:clamp(10px,1.8vw,12px);text-transform:uppercase;margin-bottom:10px;font-weight:600;}
   .hero h1{font-size:clamp(26px,4vw,44px);line-height:1.15;color:var(--cream);margin-bottom:14px;}
   .hero h1 em{font-style:normal;color:var(--gold-bright);display:block;font-size:0.85em;margin-top:4px;}
-  .hero p{max-width:580px;color:var(--text-soft);font-size:clamp(13.5px,2.5vw,16px);line-height:1.6;margin-bottom:22px;}
-  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero p{max-width:650px;color:var(--text-soft);font-size:clamp(13.5px,2.5vw,16px);line-height:1.6;margin-bottom:20px;}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
   
   .btn-primary{
     background:linear-gradient(135deg,var(--gold),var(--gold-bright));
@@ -202,18 +202,18 @@
   }
   .btn-ghost:hover{background:rgba(243,201,95,0.1);transform:translateY(-4px);}
 
-  /* HERO SLIDER CONTAINER (using 1000300640.jpg and other custom banners matching exact hero ratio) */
+  /* FULL-WIDTH HERO SLIDER CONTAINER (Touches Left-to-Right Edge) */
   .hero-banner-container{
-    width:100%;max-width:1150px;margin:0 auto;padding:0 16px;display:flex;justify-content:center;position:relative;z-index:2;
+    width:100%;margin:0;padding:0;position:relative;z-index:2;
   }
   .hero-banner-frame{
-    width:100%;max-width:1433px;aspect-ratio:1433 / 537;
-    border-radius:18px;overflow:hidden;border:2px solid rgba(212,164,55,0.4);
-    box-shadow:0 20px 50px rgba(0,0,0,0.6), 0 0 30px rgba(212,164,55,0.15);
+    width:100%;aspect-ratio:1433 / 537;
+    overflow:hidden;border-top:2px solid rgba(212,164,55,0.4);border-bottom:2px solid rgba(212,164,55,0.4);
+    box-shadow:0 10px 30px rgba(0,0,0,0.5);
     position:relative;background:#111;
   }
   .hero-slider{
-    display:flex;width:100%;height:100%;transition:transform .5s ease;
+    display:flex;width:100%;height:100%;transition:transform .6s ease-in-out;
   }
   .hero-slide{
     min-width:100%;height:100%;flex-shrink:0;position:relative;
@@ -227,10 +227,10 @@
     display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:background .2s;
   }
   .hero-slider-btn:hover{background:rgba(58,10,10,0.9);}
-  .hero-slider-prev{left:10px;}
-  .hero-slider-next{right:10px;}
+  .hero-slider-prev{left:15px;}
+  .hero-slider-next{right:15px;}
 
-  .strip{background:var(--gold-bright);color:var(--maroon-deep);text-align:center;font-weight:700;font-size:12px;letter-spacing:.6px;padding:10px;overflow:hidden;white-space:nowrap;margin-top:40px;width:100%;}
+  .strip{background:var(--gold-bright);color:var(--maroon-deep);text-align:center;font-weight:700;font-size:12px;letter-spacing:.6px;padding:10px;overflow:hidden;white-space:nowrap;margin-top:30px;width:100%;}
   .strip span{padding:0 22px;}
   .strip i{margin-right:6px;}
 
@@ -239,43 +239,40 @@
   .sec-title{text-align:center;font-size:clamp(24px,5vw,36px);margin-bottom:clamp(30px,5vw,45px);color:var(--cream);}
   .sec-title em{font-style:normal;color:var(--gold-bright);}
 
-  /* ABOUT — profile with FIVE 5-layer rotating ॐ circles */
+  /* ABOUT — profile with perfectly centered background rotating ॐ circles */
   .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,50px);align-items:center;width:100%;}
   
   .profile-container{
-    position:relative;width:100%;max-width:360px;margin:0 auto;display:flex;align-items:center;justify-content:center;aspect-ratio:1;
+    position:relative;width:100%;max-width:320px;margin:0 auto;display:flex;align-items:center;justify-content:center;aspect-ratio:1;
   }
   
-  /* FIVE-LAYER ॐ CIRCULAR STRUCTURE */
+  /* PERFECTLY CENTERED ॐ RINGS */
   .om-ring-container{
     position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1;
   }
   .om-ring{
-    position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    border:1px dashed rgba(212,164,55,0.18);
+    position:absolute;top:50%;left:50%;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    transform:translate(-50%, -50%);border:1px dashed rgba(212,164,55,0.18);
+    animation-timing-function:linear;animation-iteration-count:infinite;animation-name:omRotate;
   }
   
-  .om-ring-1{width:98%;height:98%;animation:slowRotateCW 35s linear infinite;}
-  .om-ring-2{width:80%;height:80%;animation:slowRotateCCW 28s linear infinite;}
-  .om-ring-3{width:64%;height:64%;animation:slowRotateCW 22s linear infinite;}
-  .om-ring-4{width:48%;height:48%;animation:slowRotateCCW 18s linear infinite;}
-  .om-ring-5{width:32%;height:32%;animation:slowRotateCW 14s linear infinite;}
+  .om-ring-1{width:100%;height:100%;animation-duration:35s;}
+  .om-ring-2{width:80%;height:80%;animation-duration:28s;animation-direction:reverse;}
+  .om-ring-3{width:60%;height:60%;animation-duration:22s;}
+  .om-ring-4{width:40%;height:40%;animation-duration:18s;animation-direction:reverse;}
+  .om-ring-5{width:22%;height:22%;animation-duration:14s;}
 
-  @keyframes slowRotateCW{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
-  }
-  @keyframes slowRotateCCW{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(-360deg);}
+  @keyframes omRotate {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
   }
 
   .om-symbol-item{
-    position:absolute;font-family:Georgia,serif;color:var(--gold);opacity:.35;font-weight:700;
+    position:absolute;transform:translate(-50%, -50%);font-family:Georgia,serif;color:var(--gold);opacity:.35;font-weight:700;user-select:none;
   }
 
   .about-photo{
-    position:relative;z-index:2;width:58%;height:58%;border-radius:50%;overflow:hidden;
+    position:relative;z-index:2;width:55%;height:55%;border-radius:50%;overflow:hidden;
     border:4px solid var(--gold-bright);box-shadow:0 20px 40px rgba(0,0,0,0.6);
     background:var(--maroon);
   }
@@ -284,7 +281,7 @@
   .about-name{margin-bottom:12px;position:relative;}
   .about-name .nm-eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold-bright);text-transform:uppercase;display:block;margin-bottom:6px;}
   .about-name h3{
-    font-size:clamp(24px,5vw,36px);
+    font-size:clamp(22px,4vw,34px);
     background:linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-bright));
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
     letter-spacing:.5px;
@@ -313,7 +310,7 @@
   .tl-card h5{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-bright);margin-bottom:4px;}
   .tl-card p{font-size:12.5px;color:var(--cream);}
 
-  /* SERVICE BANNERS (Matched to uploaded banner aspect ratio matching hero ratio / banner standard) */
+  /* SERVICE CARDS & BANNER AUTO-ADJUST FITTING */
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;}
   .card{
     background:linear-gradient(160deg, rgba(212,164,55,0.07), rgba(212,164,55,0.02));
@@ -337,7 +334,7 @@
   
   .slider-btn{
     position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:var(--gold-bright);
-    border:1px solid rgba(212,164,55,0.4);width:28px;height:28px;border-radius:50%;font-size:11px;
+    border:1px solid rgba(212,164,55,0.4);width:26px;height:26px;border-radius:50%;font-size:10px;
     display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:background .2s;
   }
   .slider-btn:hover{background:rgba(58,10,10,0.9);}
@@ -460,11 +457,8 @@
     ul.desktop-links{display:flex !important;}
   }
   @media(max-width:980px){
-    .hero-content-wrapper{grid-template-columns:1fr;text-align:center;}
-    .hero-text-box{align-items:center;text-align:center;}
-    .hero-btns{justify-content:center;}
     .about-grid{grid-template-columns:1fr;}
-    .profile-container{max-width:300px;}
+    .profile-container{max-width:280px;}
     .timeline-grid{grid-template-columns:1fr 1fr;}
     .grid3{grid-template-columns:1fr 1fr;}
   }
@@ -498,7 +492,7 @@
   </div>
 </header>
 
-<!-- MOBILE SIDE DRAWER (Approx 50% width with Back button) -->
+<!-- MOBILE SIDE DRAWER -->
 <div class="mobile-drawer-backdrop" id="drawerBackdrop" onclick="closeMobileDrawer()"></div>
 <div class="mobile-drawer" id="mobileDrawer">
   <div class="drawer-header">
@@ -529,7 +523,7 @@
     </div>
   </div>
   
-  <!-- HERO BANNER SLIDER (incorporating 1000300640.jpg, logo.jpg and logo1.jpg matching exact aspect ratio) -->
+  <!-- FULL WIDTH HERO BANNER AUTO SLIDER -->
   <div class="hero-banner-container" data-aos="zoom-in">
     <div class="hero-banner-frame">
       <div class="hero-slider" id="heroSlider">
@@ -547,150 +541,13 @@
   <span><i class="fa-solid fa-om"></i>Rudrabhishek</span><span><i class="fa-solid fa-fire"></i>Satyanarayan Katha</span><span><i class="fa-solid fa-house"></i>Grihpravesh</span><span><i class="fa-solid fa-rings-wedding"></i>Shadi Vivah</span><span><i class="fa-solid fa-sun"></i>Mahamrityunjay Anusthan</span><span><i class="fa-solid fa-star"></i>Navgrah Shanti</span><span><i class="fa-solid fa-book"></i>Ashtayam</span>
 </div>
 
-<!-- PANDIT PROFILE SECTION WITH FIVE-LAYER ROTATING ॐ RINGS -->
+<!-- PANDIT PROFILE SECTION WITH CENTERED ॐ RINGS -->
 <section id="about">
   <div class="tag" data-aos="fade-up">Pandit Ji</div>
   <h2 class="sec-title" data-aos="fade-up">About <em>Pandit Shri Jitendra Nath Tiwari</em></h2>
   <div class="about-grid">
     <div class="profile-container" data-aos="fade-right">
-      <!-- FIVE-LAYER CONCENTRIC ROTATING ॐ RINGS -->
       <div class="om-ring-container" id="omRings"></div>
-
-<style>
-.om-ring-container {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  margin: auto;
-}
-
-/* हर ring center में */
-.om-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-name: omRotate;
-}
-
-.om-symbol-item {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  line-height: 1;
-  white-space: nowrap;
-  user-select: none;
-}
-
-/* Ring sizes */
-.om-ring-1 {
-  width: 100%;
-  height: 100%;
-  animation-duration: 30s;
-}
-
-.om-ring-2 {
-  width: 80%;
-  height: 80%;
-  animation-duration: 25s;
-  animation-direction: reverse;
-}
-
-.om-ring-3 {
-  width: 60%;
-  height: 60%;
-  animation-duration: 20s;
-}
-
-.om-ring-4 {
-  width: 40%;
-  height: 40%;
-  animation-duration: 15s;
-  animation-direction: reverse;
-}
-
-.om-ring-5 {
-  width: 22%;
-  height: 22%;
-  animation-duration: 10s;
-}
-
-/* Rotation */
-@keyframes omRotate {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-/* Mobile */
-@media (max-width: 500px) {
-  .om-ring-container {
-    width: 320px;
-    height: 320px;
-  }
-
-  .om-symbol-item {
-    font-size: 13px;
-  }
-}
-</style>
-
-<script>
-const container = document.getElementById("omRings");
-
-/*
-  बाहर से अंदर:
-  51 → 41 → 31 → 21 → 11
-*/
-const ringData = [
-  { count: 51, size: 100 },
-  { count: 41, size: 80 },
-  { count: 31, size: 60 },
-  { count: 21, size: 40 },
-  { count: 11, size: 22 }
-];
-
-ringData.forEach((data, ringIndex) => {
-
-  const ring = document.createElement("div");
-
-  ring.className = `om-ring om-ring-${ringIndex + 1}`;
-
-  ring.style.width = data.size + "%";
-  ring.style.height = data.size + "%";
-
-  for (let i = 0; i < data.count; i++) {
-
-    const om = document.createElement("div");
-
-    om.className = "om-symbol-item";
-    om.textContent = "ॐ";
-
-    /*
-      हर Om को circle पर बिल्कुल बराबर दूरी
-      पर रखना
-    */
-    const angle = (360 / data.count) * i - 90;
-
-    const x = 50 + 50 * Math.cos(angle * Math.PI / 180);
-    const y = 50 + 50 * Math.sin(angle * Math.PI / 180);
-
-    om.style.left = x + "%";
-    om.style.top = y + "%";
-
-    ring.appendChild(om);
-  }
-
-  container.appendChild(ring);
-});
-</script>
-      
       <div class="about-photo">
         <img src="icon.jpg" alt="Pandit Shri Jitendra Nath Tiwari" loading="lazy">
       </div>
@@ -702,7 +559,7 @@ ringData.forEach((data, ringIndex) => {
         <h3>Pandit Shri Jitendra Nath Tiwari<span>पंडित श्री जितेंद्रनाथ तिवारी</span></h3>
         <div class="nm-rule"></div>
       </div>
-      <p>Pandit Shri Jitendra Nath Tiwari is a revered Vedic Acharya with over 21 years of experience in traditional Karmakand, Sanskar Seva, and sacred Hindu rituals[span_0](start_span)[span_0](end_span). Committed to preserving the purity of Sanatan traditions, every ritual is performed with authentic scriptural vidhi, complete dedication, and spiritual devotion.</p>
+      <p>Pandit Shri Jitendra Nath Tiwari is a revered Vedic Acharya with over 21 years of experience in traditional Karmakand, Sanskar Seva, and sacred Hindu rituals[span_2](start_span)[span_2](end_span). Committed to preserving the purity of Sanatan traditions, every ritual is performed with authentic scriptural vidhi, complete dedication, and spiritual devotion.</p>
 
       <div class="about-block">
         <h4><i class="fa-solid fa-hands-praying"></i> Core Specializations</h4>
@@ -724,12 +581,11 @@ ringData.forEach((data, ringIndex) => {
   </div>
 </section>
 
-<!-- SERVICES SECTION (8 Exact Services matching banner aspect ratio with sliding galleries) -->
+<!-- SERVICES SECTION -->
 <section id="services">
   <div class="tag" data-aos="fade-up">Seva</div>
   <h2 class="sec-title" data-aos="fade-up">Vedic Seva <em>List</em></h2>
 
-  <!-- Service Selector Dropdown Bar -->
   <div class="service-selector-bar" data-aos="fade-up">
     <h3>Apni Seva Select Karein</h3>
     <select id="quickServiceSelect" onchange="handleDropdownSelect(this.value)">
@@ -751,7 +607,7 @@ ringData.forEach((data, ringIndex) => {
       <div class="card-img-container">
         <div class="card-slider" id="slider-rudrabhishek">
           <div class="card-slide"><img src="R1.jpg" alt="Rudrabhishek" loading="lazy"></div>
-          <div class="card-slide"><img src="R1.jpg" alt="Rudrabhishek Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="1000300640.jpg" alt="Rudrabhishek Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-rudrabhishek', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-rudrabhishek', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -771,7 +627,6 @@ ringData.forEach((data, ringIndex) => {
           <ul>
             <li><strong>पूजा का उद्देश्य:</strong> मानसिक शांति, आरोग्य और समस्त बाधाओं का निवारण।</li>
             <li><strong>मुख्य अनुष्ठान:</strong> पंचामृत स्नान, बेलपत्र, धतूरा अर्पण एवं रुद्राष्ट्र पाठ।</li>
-            <li><strong>आवश्यक सामग्री:</strong> दूध, दही, घी, शहद, गंगाजल, फल-फूल व पूजन सामग्री।</li>
           </ul>
         </div>
       </div>
@@ -782,7 +637,7 @@ ringData.forEach((data, ringIndex) => {
       <div class="card-img-container">
         <div class="card-slider" id="slider-satyanarayan">
           <div class="card-slide"><img src="S.jpg" alt="Satyanarayan Katha" loading="lazy"></div>
-          <div class="card-slide"><img src="S.jpg" alt="Satyanarayan Katha Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="1000300640.jpg" alt="Satyanarayan Katha Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-satyanarayan', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-satyanarayan', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -802,7 +657,6 @@ ringData.forEach((data, ringIndex) => {
           <ul>
             <li><strong>पूजा का उद्देश्य:</strong> घर में सकारात्मक ऊर्जा और मंगल कार्यों की सफलता।</li>
             <li><strong>मुख्य अनुष्ठान:</strong> भगवान विष्णु पूजन, हवन और पांच अध्यायों की कथा श्रवण।</li>
-            <li><strong>प्रसाद:</strong> सूजी/आटे का चरणामृत व प्रसाद।</li>
           </ul>
         </div>
       </div>
@@ -813,7 +667,7 @@ ringData.forEach((data, ringIndex) => {
       <div class="card-img-container">
         <div class="card-slider" id="slider-grihpravesh">
           <div class="card-slide"><img src="G.jpg" alt="Grihpravesh" loading="lazy"></div>
-          <div class="card-slide"><img src="G.jpg" alt="Grihpravesh Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="1000300640.jpg" alt="Grihpravesh Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-grihpravesh', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-grihpravesh', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -833,19 +687,17 @@ ringData.forEach((data, ringIndex) => {
           <ul>
             <li><strong>पूजा का उद्देश्य:</strong> नकारात्मक ऊर्जा का नाश और नए घर में सुख-समृद्धि।</li>
             <li><strong>मुख्य अनुष्ठान:</strong> वास्तु पूजन, गणपति स्थापना, नवग्रह पूजन व हवन।</li>
-            <li><strong>आवश्यकता:</strong> शुभ मुहूर्त के अनुसार विधान।</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- 4. Shadi Vivah (Slider with BOTH wedding images: S1.jpg and second wedding asset) -->
+    <!-- 4. Shadi Vivah -->
     <div class="card" data-aos="fade-up">
       <div class="card-img-container">
         <div class="card-slider" id="slider-vivah">
           <div class="card-slide"><img src="S1.jpg" alt="Shadi Vivah Ritual 1" loading="lazy"></div>
-          <div class="card-slide"><img src="S2.jpg" alt="Shadi Vivah Ritual 2" loading="lazy"></div>
-          <div class="card-slide"><img src="S1.jpg" alt="Shadi Vivah Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="1000300640.jpg" alt="Shadi Vivah Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-vivah', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-vivah', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -865,7 +717,6 @@ ringData.forEach((data, ringIndex) => {
           <ul>
             <li><strong>पूजा का उद्देश्य:</strong> वर-वधू का मंगलमय जीवन एवं दीर्घकालिक दाम्पत्य बंध।</li>
             <li><strong>मुख्य अनुष्ठान:</strong> द्वारचार, वरमाला, कन्यादान, पाणिग्रहण व सप्तपदी।</li>
-            <li><strong>विशेषता:</strong> दोनों प्रदान की गई विवाह छवियों के साथ पूर्ण पारंपरिक संपन्नता।</li>
           </ul>
         </div>
       </div>
@@ -876,7 +727,7 @@ ringData.forEach((data, ringIndex) => {
       <div class="card-img-container">
         <div class="card-slider" id="slider-mahamrityunjay">
           <div class="card-slide"><img src="M.jpg" alt="Mahamrityunjay Anusthan" loading="lazy"></div>
-          <div class="card-slide"><img src="M.jpg" alt="Mahamrityunjay Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="1000300640.jpg" alt="Mahamrityunjay Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-mahamrityunjay', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-mahamrityunjay', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -895,7 +746,6 @@ ringData.forEach((data, ringIndex) => {
           <p>महामृत्युंजय मंत्र जप और अनुष्ठान अकाल मृत्यु भय निवारण, उत्तम स्वास्थ्य और दीर्घायु हेतु किया जाता है।</p>
           <ul>
             <li><strong>पूजा का उद्देश्य:</strong> रोग मुक्ति, स्वास्थ्य लाभ और मानसिक शक्ति।</li>
-            <li><strong>मुख्य अनुष्ठान:</strong> संकल्प, निर्धारित संख्या में मंत्र जप और दशांश हवन।</li>
           </ul>
         </div>
       </div>
@@ -906,7 +756,7 @@ ringData.forEach((data, ringIndex) => {
       <div class="card-img-container">
         <div class="card-slider" id="slider-navgrah">
           <div class="card-slide"><img src="N.jpg" alt="Navgrah Shanti" loading="lazy"></div>
-          <div class="card-slide"><img src="N.jpg" alt="Navgrah Shanti Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="1000300640.jpg" alt="Navgrah Shanti Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-navgrah', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-navgrah', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -925,17 +775,16 @@ ringData.forEach((data, ringIndex) => {
           <p>जीवन में ग्रहों की प्रतिकूल स्थिति को शांत करने और उनके सकारात्मक प्रभावों को बढ़ाने हेतु नवग्रह शांति अनुष्ठान।</p>
           <ul>
             <li><strong>पूजा का उद्देश्य:</strong> ग्रह दोष निवारण, बाधा शांति एवं सफलता प्राप्ति।</li>
-            <li><strong>मुख्य अनुष्ठान:</strong> नवग्रह हवन, समिधा अर्पण एवं वैदिक मंत्र जाप।</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- 7. Ashtayam (Incorporating uploaded 1000300630.jpg as part of Ashtayam slider) -->
+    <!-- 7. Ashtayam -->
     <div class="card" data-aos="fade-up">
       <div class="card-img-container">
         <div class="card-slider" id="slider-ashtayam">
-          <div class="card-slide"><img src="AS.jpg" alt="Ashtayam Hari Kirtan" loading="lazy"></div>
+          <div class="card-slide"><img src="1000300630.jpg" alt="Ashtayam Hari Kirtan" loading="lazy"></div>
           <div class="card-slide"><img src="AS.jpg" alt="Ashtayam" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-ashtayam', -1)"><i class="fa-solid fa-chevron-left"></i></button>
@@ -952,10 +801,9 @@ ringData.forEach((data, ringIndex) => {
       <div class="service-detail-panel" id="detail-ashtayam">
         <div class="sd-content">
           <h4>सेवा का परिचय (Ashtayam)</h4>
-          <p>अष्टयाम अनुष्ठान में निरंतर प्रभु नाम संकीर्तन और पाठ होता है जिससे वातावरण दिव्य और पवित्र बनता है[span_1](start_span)[span_1](end_span).</p>
+          <p>अष्टयाम अनुष्ठान में निरंतर प्रभु नाम संकीर्तन और पाठ होता है जिससे वातावरण दिव्य और पवित्र बनता है[span_3](start_span)[span_3](end_span).</p>
           <ul>
-            <li><strong>पूजा का उद्देश्य:</strong> आध्यात्मिक चेतना, क्षेत्र कल्याण और आत्मिक शांति[span_2](start_span)[span_2](end_span).</li>
-            <li><strong>मुख्य अनुष्ठान:</strong> निरंतर नाम जप व कीर्तन प्रवाह[span_3](start_span)[span_3](end_span).</li>
+            <li><strong>पूजा का उद्देश्य:</strong> आध्यात्मिक चेतना, क्षेत्र कल्याण और आत्मिक शांति[span_4](start_span)[span_4](end_span).</li>
           </ul>
         </div>
       </div>
@@ -966,7 +814,7 @@ ringData.forEach((data, ringIndex) => {
       <div class="card-img-container">
         <div class="card-slider" id="slider-other">
           <div class="card-slide"><img src="A.jpg" alt="Other Vedic Karmakand" loading="lazy"></div>
-          <div class="card-slide"><img src="A.jpg" alt="Other Vedic Karmakand Banner" loading="lazy"></div>
+          <div class="card-slide"><img src="1000300640.jpg" alt="Other Vedic Karmakand Banner" loading="lazy"></div>
         </div>
         <button class="slider-btn slider-prev" onclick="moveSlide('slider-other', -1)"><i class="fa-solid fa-chevron-left"></i></button>
         <button class="slider-btn slider-next" onclick="moveSlide('slider-other', 1)"><i class="fa-solid fa-chevron-right"></i></button>
@@ -985,7 +833,6 @@ ringData.forEach((data, ringIndex) => {
           <p>विभिन्न अन्य पारंपरिक संस्कार जैसे नामकरण, मुंडन, यज्ञोपवीत और विशेष हवन अनुष्ठान।</p>
           <ul>
             <li><strong>पूजा का उद्देश्य:</strong> शास्त्रोक्त विधि से सभी प्रकार के पारिवारिक संस्कार पूर्ण करना।</li>
-            <li><strong>मुख्य अनुष्ठान:</strong> संबंधित संस्कार के अनुसार विशिष्ट हवन व पूजन।</li>
           </ul>
         </div>
       </div>
@@ -993,7 +840,7 @@ ringData.forEach((data, ringIndex) => {
   </div>
 </section>
 
-<!-- BOOKING SECTION (Standard Quick Booking Form) -->
+<!-- BOOKING SECTION -->
 <section id="booking">
   <div class="tag" data-aos="fade-up">Booking</div>
   <h2 class="sec-title" data-aos="fade-up">Seva Book <em>Karein</em></h2>
@@ -1109,7 +956,37 @@ ringData.forEach((data, ringIndex) => {
     heroEl.appendChild(p);
   }
 
-  // Mobile Side Drawer Menu (approx 50% width with Back button support)
+  // Generate 5-Layer Rotating Om Rings Dynamically
+  const container = document.getElementById("omRings");
+  const ringData = [
+    { count: 45, size: 100 },
+    { count: 35, size: 80 },
+    { count: 25, size: 60 },
+    { count: 18, size: 40 },
+    { count: 10, size: 22 }
+  ];
+
+  ringData.forEach((data, ringIndex) => {
+    const ring = document.createElement("div");
+    ring.className = `om-ring om-ring-${ringIndex + 1}`;
+    ring.style.width = data.size + "%";
+    ring.style.height = data.size + "%";
+
+    for (let i = 0; i < data.count; i++) {
+      const om = document.createElement("div");
+      om.className = "om-symbol-item";
+      om.textContent = "ॐ";
+      const angle = (360 / data.count) * i - 90;
+      const x = 50 + 50 * Math.cos(angle * Math.PI / 180);
+      const y = 50 + 50 * Math.sin(angle * Math.PI / 180);
+      om.style.left = x + "%";
+      om.style.top = y + "%";
+      ring.appendChild(om);
+    }
+    container.appendChild(ring);
+  });
+
+  // Mobile Side Drawer Menu
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileDrawer = document.getElementById('mobileDrawer');
   const drawerBackdrop = document.getElementById('drawerBackdrop');
@@ -1129,12 +1006,11 @@ ringData.forEach((data, ringIndex) => {
   burgerBtn.addEventListener('click', openMobileDrawer);
   window.addEventListener('resize', ()=>{ if(window.innerWidth > 880) closeMobileDrawer(); });
 
-  // Back to top visibility
   window.addEventListener('scroll', ()=>{
     document.getElementById('topBtn').classList.toggle('show', window.scrollY > 500);
   });
 
-  // Hero Slider Logic (Auto & Manual Navigation)
+  // Hero Slider Auto & Manual Navigation
   let heroSlideIndex = 0;
   function moveHeroSlide(direction){
     const slider = document.getElementById('heroSlider');
@@ -1143,10 +1019,16 @@ ringData.forEach((data, ringIndex) => {
     heroSlideIndex = (heroSlideIndex + direction + totalSlides) % totalSlides;
     slider.style.transform = `translateX(-${heroSlideIndex * 100}%)`;
   }
-  // Auto slide hero every 5 seconds
-  setInterval(() => {
-    moveHeroSlide(1);
-  }, 5000);
+  
+  let heroInterval = setInterval(() => { moveHeroSlide(1); }, 4000);
+  
+  const heroFrame = document.querySelector('.hero-banner-container');
+  if(heroFrame){
+    heroFrame.addEventListener('mouseenter', () => clearInterval(heroInterval));
+    heroFrame.addEventListener('mouseleave', () => {
+      heroInterval = setInterval(() => { moveHeroSlide(1); }, 4000);
+    });
+  }
 
   // Service Detail Expandable Panels
   function toggleServiceDetail(detailId){
@@ -1158,7 +1040,7 @@ ringData.forEach((data, ringIndex) => {
     }
   }
 
-  // Card Image Slider Logic
+  // Card Image Sliders (Auto and Manual)
   const sliderIndices = {};
   function moveSlide(sliderId, direction){
     const slider = document.getElementById(sliderId);
@@ -1168,6 +1050,16 @@ ringData.forEach((data, ringIndex) => {
     sliderIndices[sliderId] = (sliderIndices[sliderId] + direction + totalSlides) % totalSlides;
     slider.style.transform = `translateX(-${sliderIndices[sliderId] * 100}%)`;
   }
+
+  // Auto slide service cards every 4.5 seconds
+  document.querySelectorAll('.card-slider').forEach(slider => {
+    const sliderId = slider.id;
+    if(sliderId && slider.children.length > 1){
+      setInterval(() => {
+        moveSlide(sliderId, 1);
+      }, 4500);
+    }
+  });
 
   // WhatsApp Booking Modal Functions
   function openBookingModal(serviceName){
