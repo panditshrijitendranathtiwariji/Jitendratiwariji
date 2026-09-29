@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>Pandit Abhay Tiwarii | Vedic Karmakand & Sanskar Seva</title>
 <meta name="description" content="Pandit Abhay Tiwarii — Vedic Karmakand & Sanskar Seva, Rudrabhishek, Satyanarayan Katha, Grihpravesh, Shadi Vivah, and all Vedic rituals performed with scriptural accuracy.">
-<meta name="keywords" content="Pandit Abhay Tiwarii, Vedic Karmakand, Sanskar Seva, Griha Pravesh Puja, Satyanarayan Katha, Rudrabhishek, Shadi Vivah, Navgrah Shanti, Ashtayam">
+<meta name="keywords" content="Pandit Abhay Tiwarii, Pandit Abhay Tiwari, Pandit Ji, Vedic Karmakand, Sanskar Seva, Griha Pravesh Puja, Satyanarayan Katha, Rudrabhishek, Shadi Vivah, Navgrah Shanti, Ashtayam">
 <link rel="canonical" href="https://www.panditabhaytiwarii.com/">
 <link rel="icon" type="image/jpeg" href="icon.jpg">
 
@@ -25,19 +25,20 @@
 {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Pandit Abhay Tiwarii",
+  "name": "Pandit Shri Jitendra Nath Tiwari",
+  "alternateName": "पंडित श्री जितेंद्रनाथ तिवारी",
   "jobTitle": "Vedic Karmakand & Sanskar Priest",
   "knowsAbout": ["Vedic Karmakand", "Sanskar Seva", "Rudrabhishek", "Satyanarayan Katha", "Grihpravesh", "Shadi Vivah"],
   "telephone": "+91-8651538338",
   "email": "panditji@example.com",
-  "url": "https://www.panditabhaytiwarii.com/"
+  "url": "https://www.PanditShriJitendraNathTiwari.com/"
 }
 </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "name": "Pandit Abhay Tiwarii - Vedic Karmakand & Sanskar Seva",
+  "name": "Pandit Shri Jitendra Nath Tiwari - Vedic Karmakand & Sanskar Seva",
   "telephone": "+91-8651538338",
   "email": "panditji@example.com",
   "priceRange": "₹₹",
@@ -55,11 +56,11 @@
     --text-soft:#e8d9b8;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
+  html,body{
+    width:100%;max-width:100%;overflow-x:hidden;position:relative;
     font-family:'Segoe UI', system-ui, sans-serif;
     background:var(--maroon-deep);color:var(--cream);
-    overflow-x:hidden;width:100%;max-width:100vw;position:relative;
+    scroll-behavior:smooth;
   }
   h1,h2,h3{font-family:Georgia,'Times New Roman',serif;}
   a{text-decoration:none;color:inherit;}
@@ -83,15 +84,16 @@
   /* HEADER — slim */
   header{
     position:fixed;top:0;left:0;right:0;z-index:200;
-    background:rgba(28,4,4,0.85);
+    background:rgba(28,4,4,0.92);
     backdrop-filter:blur(14px) saturate(140%);
     -webkit-backdrop-filter:blur(14px) saturate(140%);
     border-bottom:1px solid rgba(212,164,55,0.22);
+    width:100%;max-width:100%;
   }
   .nav{
     max-width:1150px;margin:0 auto;
     display:flex;align-items:center;justify-content:space-between;
-    padding:6px 16px;position:relative;
+    padding:6px 16px;position:relative;width:100%;
   }
   .logo-wrap{display:flex;align-items:center;gap:8px;min-width:0;}
   .logo-wrap img{width:34px;height:34px;border-radius:50%;border:2px solid var(--gold-bright);object-fit:cover;flex-shrink:0;}
@@ -109,28 +111,51 @@
     width:36px;height:36px;align-items:center;justify-content:center;z-index:260;position:relative;flex-shrink:0;
   }
 
-  /* MOBILE FULLSCREEN OVERLAY */
-  .mobile-overlay{
-    position:fixed;inset:0;background:rgba(20,3,3,0.97);backdrop-filter:blur(10px);
-    z-index:250;display:flex;flex-direction:column;align-items:center;justify-content:center;
-    gap:4px;transform:translateY(-100%);transition:transform .4s ease;
+  /* SIDE DRAWER MOBILE MENU (Approx 50% width) */
+  .mobile-drawer-backdrop{
+    position:fixed;inset:0;background:rgba(10,2,2,0.8);backdrop-filter:blur(6px);
+    z-index:240;opacity:0;pointer-events:none;transition:opacity .3s ease;
   }
-  .mobile-overlay.open{transform:translateY(0);}
-  .mobile-overlay a{
-    font-size:20px;color:var(--text-soft);padding:13px 0;font-family:Georgia,serif;
-    transition:color .2s;
+  .mobile-drawer-backdrop.open{opacity:1;pointer-events:auto;}
+  
+  .mobile-drawer{
+    position:fixed;top:0;right:0;bottom:0;width:52%;max-width:280px;min-width:220px;
+    background:linear-gradient(180deg, var(--maroon), var(--maroon-deep));
+    z-index:250;display:flex;flex-direction:column;padding:24px 20px;
+    border-left:1px solid rgba(212,164,55,0.3);
+    transform:translateX(100%);transition:transform .35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:-10px 0 30px rgba(0,0,0,0.6);overflow-y:auto;
   }
-  .mobile-overlay a:hover{color:var(--gold-bright);}
-  .mobile-overlay .ov-cta{
-    margin-top:16px;background:linear-gradient(135deg,var(--gold),var(--gold-bright));
-    color:var(--maroon-deep);padding:13px 34px;border-radius:30px;font-weight:700;font-size:15px;
+  .mobile-drawer.open{transform:translateX(0);}
+  
+  .drawer-header{
+    display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;
+    border-bottom:1px solid rgba(212,164,55,0.2);padding-bottom:14px;
   }
-  .mobile-overlay .om-big{font-size:36px;color:var(--gold-bright);margin-bottom:8px;}
+  .drawer-back-btn{
+    background:rgba(212,164,55,0.15);border:1px solid var(--gold-bright);color:var(--gold-bright);
+    padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;cursor:pointer;
+    display:inline-flex;align-items:center;gap:6px;transition:background .2s;
+  }
+  .drawer-back-btn:hover{background:rgba(212,164,55,0.3);}
+  .drawer-close{background:none;border:none;color:var(--gold-bright);font-size:20px;cursor:pointer;}
+  
+  .drawer-links{display:flex;flex-direction:column;gap:16px;}
+  .drawer-links a{
+    font-size:16px;color:var(--text-soft);font-family:Georgia,serif;padding:6px 0;
+    border-bottom:1px solid rgba(212,164,55,0.1);transition:color .2s;
+  }
+  .drawer-links a:hover{color:var(--gold-bright);}
+  .drawer-cta{
+    margin-top:24px;background:linear-gradient(135deg,var(--gold),var(--gold-bright));
+    color:var(--maroon-deep);padding:10px 16px;border-radius:30px;font-weight:700;font-size:13.5px;
+    text-align:center;display:block;
+  }
 
-  /* HERO */
+  /* HERO SECTION (Landscape / Horizontal layout on Desktop) */
   .hero{
-    position:relative;min-height:90vh;display:flex;align-items:center;
-    padding:clamp(86px,16vw,130px) 18px 40px;overflow:hidden;
+    position:relative;min-height:85vh;display:flex;flex-direction:column;align-items:center;
+    padding:clamp(90px, 14vw, 120px) 16px 50px;overflow:hidden;width:100%;max-width:100%;
     background:
       radial-gradient(circle at 80% 20%, rgba(212,164,55,0.16), transparent 55%),
       linear-gradient(180deg, var(--maroon) 0%, var(--maroon-deep) 75%);
@@ -150,34 +175,36 @@
     10%{opacity:.7;}
     100%{transform:translateY(-100vh) translateX(20px);opacity:0;}
   }
-  .hero-inner{
-    max-width:1150px;margin:0 auto;width:100%;position:relative;z-index:2;
-    display:flex;flex-direction:column;align-items:center;text-align:center;
+  
+  .hero-content-wrapper{
+    max-width:1150px;margin:0 auto 30px;width:100%;position:relative;z-index:2;
+    display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;
   }
-  .om{font-size:clamp(28px,5vw,38px);color:var(--gold-bright);margin-bottom:8px;}
-  .eyebrow{color:var(--gold-bright);letter-spacing:3px;font-size:clamp(10px,2vw,12px);text-transform:uppercase;margin-bottom:14px;font-weight:600;}
-  .hero h1{font-size:clamp(30px,7vw,52px);line-height:1.15;color:var(--cream);margin-bottom:16px;}
+  .hero-text-box{display:flex;flex-direction:column;text-align:left;}
+  .om{font-size:clamp(26px,4vw,36px);color:var(--gold-bright);margin-bottom:6px;}
+  .eyebrow{color:var(--gold-bright);letter-spacing:2px;font-size:clamp(10px,1.8vw,12px);text-transform:uppercase;margin-bottom:10px;font-weight:600;}
+  .hero h1{font-size:clamp(28px,4.5vw,48px);line-height:1.15;color:var(--cream);margin-bottom:14px;}
   .hero h1 em{font-style:normal;color:var(--gold-bright);}
-  .hero p{max-width:650px;color:var(--text-soft);font-size:clamp(14px,3.4vw,17px);line-height:1.7;margin-bottom:26px;}
-  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:36px;}
+  .hero p{max-width:580px;color:var(--text-soft);font-size:clamp(13.5px,2.5vw,16px);line-height:1.6;margin-bottom:22px;}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
   
   .btn-primary{
     background:linear-gradient(135deg,var(--gold),var(--gold-bright));
-    color:var(--maroon-deep);padding:14px 28px;border-radius:30px;font-weight:700;font-size:14.5px;
+    color:var(--maroon-deep);padding:13px 26px;border-radius:30px;font-weight:700;font-size:14px;
     box-shadow:0 10px 30px rgba(212,164,55,0.25);transition:transform .25s, box-shadow .25s;
     display:inline-flex;align-items:center;gap:8px;
   }
   .btn-primary:hover{transform:translateY(-4px) scale(1.03);box-shadow:0 16px 40px rgba(212,164,55,0.4);}
   .btn-ghost{
     border:1px solid rgba(243,201,95,0.5);color:var(--gold-bright);
-    padding:14px 28px;border-radius:30px;font-weight:600;font-size:14.5px;
+    padding:13px 26px;border-radius:30px;font-weight:600;font-size:14px;
     transition:background .25s, transform .25s;display:inline-flex;align-items:center;gap:8px;
   }
   .btn-ghost:hover{background:rgba(243,201,95,0.1);transform:translateY(-4px);}
 
-  /* HERO BANNER SECTION (logo.jpg with 1433:537 ratio) */
+  /* HERO BANNER CONTAINER (logo.jpg in exact 1433:537 ratio) */
   .hero-banner-container{
-    width:100%;max-width:1433px;margin:20px auto 0;padding:0 16px;display:flex;justify-content:center;
+    width:100%;max-width:1150px;margin:0 auto;padding:0 16px;display:flex;justify-content:center;position:relative;z-index:2;
   }
   .hero-banner-frame{
     width:100%;max-width:1433px;aspect-ratio:1433 / 537;
@@ -188,32 +215,53 @@
     width:100%;height:100%;object-fit:cover;display:block;
   }
 
-  .strip{background:var(--gold-bright);color:var(--maroon-deep);text-align:center;font-weight:700;font-size:12px;letter-spacing:.6px;padding:10px;overflow:hidden;white-space:nowrap;margin-top:30px;}
+  .strip{background:var(--gold-bright);color:var(--maroon-deep);text-align:center;font-weight:700;font-size:12px;letter-spacing:.6px;padding:10px;overflow:hidden;white-space:nowrap;margin-top:40px;width:100%;}
   .strip span{padding:0 22px;}
   .strip i{margin-right:6px;}
 
-  section{padding:clamp(56px,9vw,90px) 18px;max-width:1150px;margin:0 auto;}
+  section{padding:clamp(50px,8vw,80px) 16px;max-width:1150px;margin:0 auto;width:100%;}
   .tag{text-align:center;color:var(--gold-bright);letter-spacing:3px;font-size:11.5px;text-transform:uppercase;font-weight:700;margin-bottom:10px;}
-  .sec-title{text-align:center;font-size:clamp(24px,6vw,38px);margin-bottom:clamp(34px,6vw,50px);color:var(--cream);}
+  .sec-title{text-align:center;font-size:clamp(24px,5vw,36px);margin-bottom:clamp(30px,5vw,45px);color:var(--cream);}
   .sec-title em{font-style:normal;color:var(--gold-bright);}
 
-  /* ABOUT — profile with rotating Om background */
-  .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,50px);align-items:center;}
+  /* ABOUT — profile with FIVE 5-layer rotating ॐ circles */
+  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,5vw,50px);align-items:center;width:100%;}
   
   .profile-container{
-    position:relative;width:100%;max-width:340px;margin:0 auto;display:flex;align-items:center;justify-content:center;aspect-ratio:1;
+    position:relative;width:100%;max-width:360px;margin:0 auto;display:flex;align-items:center;justify-content:center;aspect-ratio:1;
+  }
+  
+  /* FIVE-LAYER ॐ CIRCULAR STRUCTURE */
+  .om-ring-container{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:1;
   }
   .om-ring{
-    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    font-size:clamp(180px, 45vw, 290px);color:var(--gold);opacity:.25;font-family:Georgia,serif;
-    animation:slowRotate 25s linear infinite;pointer-events:none;z-index:1;user-select:none;
+    position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    border:1px dashed rgba(212,164,55,0.18);
   }
-  @keyframes slowRotate{
+  
+  /* 5 Concentric Rings with different sizes and speeds */
+  .om-ring-1{width:98%;height:98%;animation:slowRotateCW 35s linear infinite;}
+  .om-ring-2{width:80%;height:80%;animation:slowRotateCCW 28s linear infinite;}
+  .om-ring-3{width:64%;height:64%;animation:slowRotateCW 22s linear infinite;}
+  .om-ring-4{width:48%;height:48%;animation:slowRotateCCW 18s linear infinite;}
+  .om-ring-5{width:32%;height:32%;animation:slowRotateCW 14s linear infinite;}
+
+  @keyframes slowRotateCW{
     from{transform:rotate(0deg);}
     to{transform:rotate(360deg);}
   }
+  @keyframes slowRotateCCW{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(-360deg);}
+  }
+
+  .om-symbol-item{
+    position:absolute;font-family:Georgia,serif;color:var(--gold);opacity:.35;font-weight:700;
+  }
+
   .about-photo{
-    position:relative;z-index:2;width:75%;height:75%;border-radius:50%;overflow:hidden;
+    position:relative;z-index:2;width:58%;height:58%;border-radius:50%;overflow:hidden;
     border:4px solid var(--gold-bright);box-shadow:0 20px 40px rgba(0,0,0,0.6);
     background:var(--maroon);
   }
@@ -222,7 +270,7 @@
   .about-name{margin-bottom:12px;position:relative;}
   .about-name .nm-eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold-bright);text-transform:uppercase;display:block;margin-bottom:6px;}
   .about-name h3{
-    font-size:clamp(26px,5.5vw,40px);
+    font-size:clamp(24px,5vw,38px);
     background:linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-bright));
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
     letter-spacing:.5px;
@@ -231,71 +279,109 @@
     width:90px;height:2px;margin:14px 0 0;
     background:linear-gradient(90deg, var(--gold-bright), transparent);
   }
-  .about-text p{color:var(--text-soft);font-size:14.5px;line-height:1.85;margin-bottom:22px;}
-  .about-block h4{color:var(--gold-bright);font-size:15.5px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-  .chip-list{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:10px;}
+  .about-text p{color:var(--text-soft);font-size:14px;line-height:1.8;margin-bottom:20px;}
+  .about-block h4{color:var(--gold-bright);font-size:15px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+  .chip-list{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
   .chip{
     border:1px solid rgba(212,164,55,0.3);background:rgba(243,201,95,0.05);
-    color:var(--text-soft);font-size:12.5px;padding:7px 13px;border-radius:30px;display:flex;align-items:center;gap:6px;
+    color:var(--text-soft);font-size:12px;padding:6px 12px;border-radius:30px;display:flex;align-items:center;gap:6px;
   }
   .chip i{color:var(--gold-bright);}
-  .timeline-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px;}
+  .timeline-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px;}
   .tl-card{
     background:linear-gradient(160deg, rgba(212,164,55,0.09), rgba(212,164,55,0.02));
-    border:1px solid rgba(212,164,55,0.22);border-radius:14px;padding:22px 14px;text-align:center;
+    border:1px solid rgba(212,164,55,0.22);border-radius:14px;padding:18px 12px;text-align:center;
     transition:transform .25s;
   }
-  .tl-card:hover{transform:translateY(-6px);}
-  .tl-card .ti{font-size:22px;color:var(--gold-bright);margin-bottom:10px;}
-  .tl-card h5{font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:var(--gold-bright);margin-bottom:5px;}
-  .tl-card p{font-size:13px;color:var(--cream);}
+  .tl-card:hover{transform:translateY(-5px);}
+  .tl-card .ti{font-size:20px;color:var(--gold-bright);margin-bottom:8px;}
+  .tl-card h5{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:var(--gold-bright);margin-bottom:4px;}
+  .tl-card p{font-size:12.5px;color:var(--cream);}
 
-  /* PUJA CARDS */
-  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  /* SERVICE BANNERS (16:4 Aspect Ratio) */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%;}
   .card{
     background:linear-gradient(160deg, rgba(212,164,55,0.07), rgba(212,164,55,0.02));
     border:1px solid rgba(212,164,55,0.2);border-radius:18px;overflow:hidden;transition:transform .25s, border-color .25s;
-    display:flex;flex-direction:column;
+    display:flex;flex-direction:column;width:100%;
   }
-  .card:hover{transform:translateY(-8px);border-color:rgba(212,164,55,0.55);}
-  .card .card-img{width:100%;aspect-ratio:4/3;overflow:hidden;}
-  .card .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
-  .card:hover .card-img img{transform:scale(1.08);}
+  .card:hover{transform:translateY(-6px);border-color:rgba(212,164,55,0.55);}
   
-  /* Dual image layout for Shadi Vivah */
-  .card .card-img-dual{display:grid;grid-template-columns:1fr 1fr;width:100%;aspect-ratio:4/3;overflow:hidden;gap:2px;}
-  .card .card-img-dual img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
-  .card:hover .card-img-dual img{transform:scale(1.08);}
+  /* 16:4 Image Container & Slider Styling */
+  .card-img-container{
+    width:100%;aspect-ratio:16 / 4;position:relative;overflow:hidden;background:#111;
+  }
+  .card-slider{
+    display:flex;width:100%;height:100%;transition:transform .5s ease;
+  }
+  .card-slide{
+    min-width:100%;height:100%;flex-shrink:0;position:relative;
+  }
+  .card-slide img{
+    width:100%;height:100%;object-fit:cover;display:block;
+  }
+  
+  /* Slider Controls for multi-image cards like Shadi Vivah */
+  .slider-btn{
+    position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:var(--gold-bright);
+    border:1px solid rgba(212,164,55,0.4);width:28px;height:28px;border-radius:50%;font-size:11px;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:background .2s;
+  }
+  .slider-btn:hover{background:rgba(58,10,10,0.9);}
+  .slider-prev{left:6px;}
+  .slider-next{right:6px;}
 
-  .card .card-body{padding:20px 22px;display:flex;flex-direction:column;flex-grow:1;}
-  .card h3{font-size:18px;margin-bottom:9px;color:var(--gold-bright);}
-  .card p{color:var(--text-soft);font-size:13.5px;line-height:1.6;margin-bottom:16px;flex-grow:1;}
+  .card-body{padding:18px 20px;display:flex;flex-direction:column;flex-grow:1;}
+  .card h3{font-size:17px;margin-bottom:8px;color:var(--gold-bright);}
+  .card p{color:var(--text-soft);font-size:13px;line-height:1.6;margin-bottom:14px;flex-grow:1;}
+  
+  .card-btn-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
   .card-btn{
     background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--maroon-deep);
-    border:none;padding:10px 16px;border-radius:20px;font-weight:700;font-size:12.5px;cursor:pointer;
+    border:none;padding:9px 14px;border-radius:20px;font-weight:700;font-size:12px;cursor:pointer;
     display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:opacity .2s;text-align:center;
   }
   .card-btn:hover{opacity:.9;}
+  
+  .info-toggle-btn{
+    background:rgba(243,201,95,0.1);color:var(--gold-bright);border:1px solid rgba(212,164,55,0.3);
+    padding:9px 12px;border-radius:20px;font-weight:600;font-size:12px;cursor:pointer;
+    display:inline-flex;align-items:center;gap:5px;transition:background .2s;
+  }
+  .info-toggle-btn:hover{background:rgba(243,201,95,0.2);}
 
-  /* SERVICE DROPDOWN SELECTOR BAR */
+  /* SERVICE EXPANDABLE DETAIL PANEL */
+  .service-detail-panel{
+    max-height:0;overflow:hidden;transition:max-height .4s ease, padding .3s ease;
+    background:rgba(20,3,3,0.95);border-top:1px solid rgba(212,164,55,0.15);padding:0 20px;
+  }
+  .service-detail-panel.open{
+    max-height:400px;padding:16px 20px;
+  }
+  .sd-content h4{color:var(--gold-bright);font-size:14px;margin-bottom:6px;}
+  .sd-content p{color:var(--text-soft);font-size:12.5px;line-height:1.6;margin-bottom:8px;}
+  .sd-content ul{list-style:disc;padding-left:16px;color:var(--text-soft);font-size:12.5px;margin-bottom:8px;}
+  .sd-content ul li{margin-bottom:3px;}
+
+  /* SERVICE SELECTOR DROPDOWN BAR */
   .service-selector-bar{
     background:linear-gradient(135deg, rgba(212,164,55,0.12), rgba(58,10,10,0.6));
-    border:1px solid rgba(212,164,55,0.35);border-radius:16px;padding:24px;margin-bottom:40px;
-    text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.3);
+    border:1px solid rgba(212,164,55,0.35);border-radius:16px;padding:22px;margin-bottom:35px;
+    text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.3);width:100%;
   }
-  .service-selector-bar h3{color:var(--gold-bright);font-size:20px;margin-bottom:12px;}
-  .service-selector-bar select{max-width:500px;margin:0 auto;cursor:pointer;}
+  .service-selector-bar h3{color:var(--gold-bright);font-size:19px;margin-bottom:10px;}
+  .service-selector-bar select{max-width:480px;margin:0 auto;cursor:pointer;}
 
   /* BOOKING MODAL */
   .modal-overlay{
     position:fixed;inset:0;background:rgba(10,2,2,0.85);backdrop-filter:blur(8px);
-    z-index:400;display:none;align-items:center;justify-content:center;padding:16px;
+    z-index:400;display:none;align-items:center;justify-content:center;padding:16px;width:100%;max-width:100%;
   }
   .modal-overlay.active{display:flex;}
   .modal-box{
     background:linear-gradient(160deg, var(--maroon), var(--maroon-deep));
-    border:2px solid var(--gold);border-radius:20px;padding:clamp(20px,4vw,36px);
-    width:100%;max-width:500px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,0.7), 0 0 40px rgba(212,164,55,0.2);
+    border:2px solid var(--gold);border-radius:20px;padding:clamp(20px,4vw,34px);
+    width:100%;max-width:480px;position:relative;box-shadow:0 25px 60px rgba(0,0,0,0.7), 0 0 40px rgba(212,164,55,0.2);
     max-height:90vh;overflow-y:auto;
   }
   .modal-close{
@@ -304,23 +390,23 @@
     transition:background .2s;
   }
   .modal-close:hover{background:rgba(212,164,55,0.15);}
-  .modal-title{font-size:24px;color:var(--gold-bright);margin-bottom:8px;font-family:Georgia,serif;}
-  .modal-sub{font-size:12.5px;color:var(--text-soft);margin-bottom:20px;line-height:1.5;}
+  .modal-title{font-size:22px;color:var(--gold-bright);margin-bottom:8px;font-family:Georgia,serif;}
+  .modal-sub{font-size:12px;color:var(--text-soft);margin-bottom:18px;line-height:1.5;}
 
   /* BOOKING SECTION */
   .booking-box{
     background:linear-gradient(135deg, rgba(212,164,55,0.1), rgba(58,10,10,0.4));
-    border:1px solid rgba(212,164,55,0.3);border-radius:20px;padding:clamp(22px,5vw,46px);
-    display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,40px);align-items:center;
+    border:1px solid rgba(212,164,55,0.3);border-radius:20px;padding:clamp(20px,4vw,40px);
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,4vw,36px);align-items:center;width:100%;
   }
-  .booking-info h3{color:var(--gold-bright);font-size:22px;margin-bottom:12px;}
-  .booking-info p{color:var(--text-soft);font-size:13.5px;line-height:1.8;margin-bottom:18px;}
-  .contact-line{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:13.5px;color:var(--cream);}
+  .booking-info h3{color:var(--gold-bright);font-size:21px;margin-bottom:10px;}
+  .booking-info p{color:var(--text-soft);font-size:13px;line-height:1.7;margin-bottom:16px;}
+  .contact-line{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:13px;color:var(--cream);}
   .contact-line .ic{color:var(--gold-bright);width:18px;}
-  form{display:flex;flex-direction:column;gap:13px;}
+  form{display:flex;flex-direction:column;gap:12px;width:100%;}
   input,select,textarea{
     background:rgba(0,0,0,0.25);border:1px solid rgba(212,164,55,0.3);border-radius:8px;
-    padding:14px;color:var(--cream);font-size:16px;font-family:inherit;width:100%;
+    padding:13px;color:var(--cream);font-size:15px;font-family:inherit;width:100%;
   }
   input::placeholder,textarea::placeholder{color:#bfae8a;}
   input:focus,select:focus,textarea:focus{outline:2px solid var(--gold-bright);}
@@ -328,46 +414,49 @@
   
   .submit-btn{
     background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:var(--maroon-deep);border:none;
-    padding:15px;border-radius:8px;font-weight:700;font-size:15px;cursor:pointer;transition:opacity .2s;
-    display:flex;align-items:center;justify-content:center;gap:8px;
+    padding:14px;border-radius:8px;font-weight:700;font-size:14.5px;cursor:pointer;transition:opacity .2s;
+    display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
   }
   .submit-btn:hover{opacity:.9;}
-  .form-note{font-size:11.5px;color:var(--text-soft);text-align:center;}
+  .form-note{font-size:11px;color:var(--text-soft);text-align:center;}
 
   /* CONTACT */
-  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;margin-bottom:30px;}
-  .contact-card{border:1px solid rgba(212,164,55,0.2);border-radius:14px;padding:26px 16px;background:rgba(243,201,95,0.03);}
-  .contact-card .ic{font-size:24px;color:var(--gold-bright);margin-bottom:12px;}
-  .contact-card h4{font-size:14px;margin-bottom:6px;color:var(--cream);}
-  .contact-card p{font-size:13px;color:var(--text-soft);}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:center;margin-bottom:28px;width:100%;}
+  .contact-card{border:1px solid rgba(212,164,55,0.2);border-radius:14px;padding:24px 16px;background:rgba(243,201,95,0.03);}
+  .contact-card .ic{font-size:23px;color:var(--gold-bright);margin-bottom:10px;}
+  .contact-card h4{font-size:13.5px;margin-bottom:6px;color:var(--cream);}
+  .contact-card p{font-size:12.5px;color:var(--text-soft);}
   .contact-social{display:flex;justify-content:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;}
   .contact-social a{
     display:flex;align-items:center;gap:7px;border:1px solid rgba(212,164,55,0.3);
-    padding:9px 16px;border-radius:30px;color:var(--gold-bright);font-size:12.5px;transition:background .2s;
+    padding:9px 16px;border-radius:30px;color:var(--gold-bright);font-size:12px;transition:background .2s;
   }
   .contact-social a:hover{background:rgba(212,164,55,0.12);}
 
-  footer{text-align:center;padding:44px 18px 28px;border-top:1px solid rgba(212,164,55,0.15);color:var(--text-soft);font-size:12.5px;}
-  .footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;}
-  .footer-logo img{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold-bright);object-fit:cover;}
-  .footer-logo span{color:var(--gold-bright);font-weight:700;font-size:16px;}
-  .social-row{display:flex;justify-content:center;gap:13px;margin:18px 0;flex-wrap:wrap;}
-  .social-row a{width:38px;height:38px;border-radius:50%;border:1px solid rgba(212,164,55,0.35);display:flex;align-items:center;justify-content:center;color:var(--gold-bright);transition:background .2s, transform .2s;}
+  footer{text-align:center;padding:40px 16px 26px;border-top:1px solid rgba(212,164,55,0.15);color:var(--text-soft);font-size:12px;width:100%;}
+  .footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:12px;}
+  .footer-logo img{width:44px;height:44px;border-radius:50%;border:2px solid var(--gold-bright);object-fit:cover;}
+  .footer-logo span{color:var(--gold-bright);font-weight:700;font-size:15px;}
+  .social-row{display:flex;justify-content:center;gap:12px;margin:16px 0;flex-wrap:wrap;}
+  .social-row a{width:36px;height:36px;border-radius:50%;border:1px solid rgba(212,164,55,0.35);display:flex;align-items:center;justify-content:center;color:var(--gold-bright);transition:background .2s, transform .2s;}
   .social-row a:hover{background:rgba(212,164,55,0.15);transform:translateY(-3px);}
-  .footer-bottom{margin-top:16px;color:#b89e6b;font-size:11.5px;}
+  .footer-bottom{margin-top:14px;color:#b89e6b;font-size:11px;}
 
-  .wa-float{position:fixed;bottom:18px;right:18px;z-index:99;background:#25d366;color:#fff;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
-  .top-float{position:fixed;bottom:18px;right:78px;z-index:99;background:rgba(212,164,55,0.15);border:1px solid var(--gold-bright);color:var(--gold-bright);width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;}
+  .wa-float{position:fixed;bottom:18px;right:18px;z-index:99;background:#25d366;color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:21px;box-shadow:0 8px 24px rgba(0,0,0,0.4);}
+  .top-float{position:fixed;bottom:18px;right:74px;z-index:99;background:rgba(212,164,55,0.15);border:1px solid var(--gold-bright);color:var(--gold-bright);width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s;}
   .top-float.show{opacity:1;pointer-events:auto;}
 
   /* ===== RESPONSIVE MEDIA QUERIES ===== */
   @media(min-width:881px){
-    .burger, .mobile-overlay{display:none !important;}
+    .burger, .mobile-drawer, .mobile-drawer-backdrop{display:none !important;}
     ul.desktop-links{display:flex !important;}
   }
   @media(max-width:980px){
+    .hero-content-wrapper{grid-template-columns:1fr;text-align:center;}
+    .hero-text-box{align-items:center;text-align:center;}
+    .hero-btns{justify-content:center;}
     .about-grid{grid-template-columns:1fr;}
-    .profile-container{max-width:280px;}
+    .profile-container{max-width:300px;}
     .timeline-grid{grid-template-columns:1fr 1fr;}
     .grid3{grid-template-columns:1fr 1fr;}
   }
@@ -377,7 +466,7 @@
     .burger{display:flex !important;}
     .grid3{grid-template-columns:1fr;}
     .timeline-grid{grid-template-columns:1fr;}
-    .booking-box{grid-template-columns:1fr;padding:22px;}
+    .booking-box{grid-template-columns:1fr;padding:20px;}
     .contact-grid{grid-template-columns:1fr;}
   }
 </style>
@@ -388,7 +477,7 @@
   <div class="nav">
     <div class="logo-wrap">
       <img src="icon.jpg" alt="Pandit Abhay Tiwarii Logo" loading="eager" width="34" height="34">
-      <div class="logo-text">PANDIT ABHAY TIWARII<span>VEDIC KARMKAND &amp; SANSKAR</span></div>
+      <div class="logo-text">Pandit Shri Jitendra Nath Tiwari<span>VEDIC KARMKAND &amp; SANSKAR</span></div>
     </div>
     <button class="burger" id="burgerBtn" aria-label="Menu"><i class="fa-solid fa-bars" id="burgerIcon"></i></button>
     <ul class="desktop-links" id="navlinksDesktop">
@@ -401,22 +490,29 @@
   </div>
 </header>
 
-<div class="mobile-overlay" id="mobileOverlay">
-  <div class="om-big">ॐ</div>
-  <a href="#about">Pandit Ji</a>
-  <a href="#services">Seva</a>
-  <a href="#booking">Booking</a>
-  <a href="#contact">Contact</a>
-  <a href="#booking" class="ov-cta">Book Seva</a>
+<!-- MOBILE SIDE DRAWER (Approx 50% width with Back button) -->
+<div class="mobile-drawer-backdrop" id="drawerBackdrop" onclick="closeMobileDrawer()"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-header">
+    <button class="drawer-back-btn" onclick="closeMobileDrawer()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+    <button class="drawer-close" onclick="closeMobileDrawer()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="drawer-links">
+    <a href="#about" onclick="closeMobileDrawer()">Pandit Ji</a>
+    <a href="#services" onclick="closeMobileDrawer()">Seva</a>
+    <a href="#booking" onclick="closeMobileDrawer()">Booking</a>
+    <a href="#contact" onclick="closeMobileDrawer()">Contact</a>
+  </div>
+  <a href="#booking" class="drawer-cta" onclick="closeMobileDrawer()">Book Seva</a>
 </div>
 
 <section class="hero">
   <div class="temple-pattern"></div>
-  <div class="hero-inner">
-    <div data-aos="fade-up">
+  <div class="hero-content-wrapper">
+    <div class="hero-text-box" data-aos="fade-right">
       <div class="om">ॐ</div>
       <div class="eyebrow">Vedic Karmakand & Sanskar Seva</div>
-      <h1>Pandit Abhay Tiwarii</h1>
+      <h1>Pandit Abhay Tiwarii<br><em>पंडित श्री जितेंद्रनाथ तिवारी</em></h1>
       <p>"Vedic puja, sanskar, anushthan aur karmakand seva — paramparik vidhi aur shraddha ke saath."</p>
       <div class="hero-btns">
         <a href="#booking" class="btn-primary"><i class="fa-brands fa-whatsapp"></i> WhatsApp Booking</a>
@@ -437,24 +533,60 @@
   <span><i class="fa-solid fa-om"></i>Rudrabhishek</span><span><i class="fa-solid fa-fire"></i>Satyanarayan Katha</span><span><i class="fa-solid fa-house"></i>Grihpravesh</span><span><i class="fa-solid fa-rings-wedding"></i>Shadi Vivah</span><span><i class="fa-solid fa-sun"></i>Mahamrityunjay Anusthan</span><span><i class="fa-solid fa-star"></i>Navgrah Shanti</span><span><i class="fa-solid fa-book"></i>Ashtayam</span>
 </div>
 
-<!-- PANDIT PROFILE SECTION WITH ROTATING OM BEHIND PROFILE -->
+<!-- PANDIT PROFILE SECTION WITH FIVE-LAYER ROTATING ॐ RINGS -->
 <section id="about">
   <div class="tag" data-aos="fade-up">Pandit Ji</div>
-  <h2 class="sec-title" data-aos="fade-up">About <em>Pandit Abhay Tiwarii</em></h2>
+  <h2 class="sec-title" data-aos="fade-up">About <em>Pandit Shri Jitendra Nath Tiwari</em></h2>
   <div class="about-grid">
     <div class="profile-container" data-aos="fade-right">
-      <div class="om-ring">ॐ</div>
+      <!-- FIVE-LAYER CONCENTRIC ROTATING ॐ RINGS -->
+      <div class="om-ring-container">
+        <div class="om-ring om-ring-1">
+          <div class="om-symbol-item" style="top:2%;left:48%;">ॐ</div>
+          <div class="om-symbol-item" style="top:25%;left:85%;">ॐ</div>
+          <div class="om-symbol-item" style="top:75%;left:85%;">ॐ</div>
+          <div class="om-symbol-item" style="top:94%;left:48%;">ॐ</div>
+          <div class="om-symbol-item" style="top:75%;left:12%;">ॐ</div>
+          <div class="om-symbol-item" style="top:25%;left:12%;">ॐ</div>
+        </div>
+        <div class="om-ring om-ring-2">
+          <div class="om-symbol-item" style="top:5%;left:70%;">ॐ</div>
+          <div class="om-symbol-item" style="top:50%;left:93%;">ॐ</div>
+          <div class="om-symbol-item" style="top:90%;left:70%;">ॐ</div>
+          <div class="om-symbol-item" style="top:90%;left:25%;">ॐ</div>
+          <div class="om-symbol-item" style="top:50%;left:5%;">ॐ</div>
+          <div class="om-symbol-item" style="top:5%;left:25%;">ॐ</div>
+        </div>
+        <div class="om-ring om-ring-3">
+          <div class="om-symbol-item" style="top:12%;left:50%;">ॐ</div>
+          <div class="om-symbol-item" style="top:45%;left:88%;">ॐ</div>
+          <div class="om-symbol-item" style="top:85%;left:50%;">ॐ</div>
+          <div class="om-symbol-item" style="top:45%;left:10%;">ॐ</div>
+        </div>
+        <div class="om-ring om-ring-4">
+          <div class="om-symbol-item" style="top:8%;left:80%;">ॐ</div>
+          <div class="om-symbol-item" style="top:80%;left:80%;">ॐ</div>
+          <div class="om-symbol-item" style="top:80%;left:20%;">ॐ</div>
+          <div class="om-symbol-item" style="top:8%;left:20%;">ॐ</div>
+        </div>
+        <div class="om-ring om-ring-5">
+          <div class="om-symbol-item" style="top:20%;left:50%;">ॐ</div>
+          <div class="om-symbol-item" style="top:80%;left:50%;">ॐ</div>
+        </div>
+      </div>
+      
       <div class="about-photo">
         <img src="icon.jpg" alt="Pandit Abhay Tiwarii" loading="lazy">
       </div>
     </div>
+    
     <div class="about-text" data-aos="fade-left">
       <div class="about-name">
-        <span class="nm-eyebrow">Vedic Karmakand & Sanskar Seva</span>
-        <h3>Pandit Abhay Tiwarii</h3>
+        <span class="nm-eyebrow">Vedic Karmakand & Sanskar Seva · वैदिक कर्मकांड एवं संस्कार सेवा</span>
+        <h3>Pandit Shri Jitendra Nath Tiwari</h3>
         <div class="nm-rule"></div>
       </div>
-      <p>Pandit Abhay Tiwarii is a dedicated Vedic priest specializing in traditional Karmakand, Sanskar Seva, and sacred Hindu rituals. Committed to preserving the purity of Sanatan traditions, every ritual is performed with authentic scriptural vidhi, complete dedication, and spiritual devotion.</p>
+      <p>Pandit Shri Jitendra Nath Tiwari is a dedicated Vedic priest specializing in traditional Karmakand, Sanskar Seva, and sacred Hindu rituals. Committed to preserving the purity of Sanatan traditions, every ritual is performed with authentic scriptural vidhi, complete dedication, and spiritual devotion.</p>
 
       <div class="about-block">
         <h4><i class="fa-solid fa-hands-praying"></i> Core Specializations</h4>
@@ -476,12 +608,12 @@
   </div>
 </section>
 
-<!-- SERVICES SECTION (8 Exact Services + Dropdown Selector Bar) -->
+<!-- SERVICES SECTION (8 Exact Services in 16:4 banners, interactive dropdowns & sliding galleries) -->
 <section id="services">
   <div class="tag" data-aos="fade-up">Seva</div>
   <h2 class="sec-title" data-aos="fade-up">Vedic Seva <em>List</em></h2>
 
-  <!-- Service Dropdown Selector Bar -->
+  <!-- Service Selector Dropdown Bar -->
   <div class="service-selector-bar" data-aos="fade-up">
     <h3>Apni Seva Select Karein</h3>
     <select id="quickServiceSelect" onchange="handleDropdownSelect(this.value)">
@@ -500,84 +632,224 @@
   <div class="grid3">
     <!-- 1. Rudrabhishek -->
     <div class="card" data-aos="fade-up">
-      <div class="card-img"><img src="R1.jpg" alt="Rudrabhishek" loading="lazy"></div>
+      <div class="card-img-container">
+        <div class="card-slider" id="slider-rudrabhishek">
+          <div class="card-slide"><img src="R1.jpg" alt="Rudrabhishek" loading="lazy"></div>
+        </div>
+      </div>
       <div class="card-body">
         <h3>Rudrabhishek</h3>
         <p>A powerful worship of Lord Shiva involving sacred abhishek with holy water, milk, and chanting of Rudram mantras for peace and divine blessings.</p>
-        <button class="card-btn" onclick="openBookingModal('Rudrabhishek')"><i class="fa-brands fa-whatsapp"></i> WhatsApp se Book Karein</button>
+        <div class="card-btn-row">
+          <button class="card-btn" onclick="openBookingModal('Rudrabhishek')"><i class="fa-brands fa-whatsapp"></i> Book Seva</button>
+          <button class="info-toggle-btn" onclick="toggleServiceDetail('detail-rudrabhishek')"><i class="fa-solid fa-circle-info"></i> Details</button>
+        </div>
+      </div>
+      <div class="service-detail-panel" id="detail-rudrabhishek">
+        <div class="sd-content">
+          <h4>सेवा का परिचय (Rudrabhishek)</h4>
+          <p>भगवान शिव को प्रसन्न करने और उनकी कृपा प्राप्ति हेतु रुद्राभिषेक सबसे श्रेष्ठ अनुष्ठान माना गया है।</p>
+          <ul>
+            <li><strong>पूजा का उद्देश्य:</strong> मानसिक शांति, आरोग्य और समस्त बाधाओं का निवारण।</li>
+            <li><strong>मुख्य अनुष्ठान:</strong> पंचामृत स्नान, बेलपत्र, धतूरा अर्पण एवं रुद्राष्ट्र पाठ।</li>
+            <li><strong>आवश्यक सामग्री:</strong> दूध, दही, घी, शहद, गंगाजल, फल-फूल व पूजन सामग्री।</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- 2. Satyanarayan Katha -->
     <div class="card" data-aos="fade-up">
-      <div class="card-img"><img src="S.jpg" alt="Satyanarayan Katha" loading="lazy"></div>
+      <div class="card-img-container">
+        <div class="card-slider" id="slider-satyanarayan">
+          <div class="card-slide"><img src="S.jpg" alt="Satyanarayan Katha" loading="lazy"></div>
+        </div>
+      </div>
       <div class="card-body">
         <h3>Satyanarayan Katha</h3>
         <p>A sacred ritual and storytelling dedicated to Lord Vishnu, bringing prosperity, health, and harmony to the family.</p>
-        <button class="card-btn" onclick="openBookingModal('Satyanarayan Katha')"><i class="fa-brands fa-whatsapp"></i> WhatsApp se Book Karein</button>
+        <div class="card-btn-row">
+          <button class="card-btn" onclick="openBookingModal('Satyanarayan Katha')"><i class="fa-brands fa-whatsapp"></i> Book Seva</button>
+          <button class="info-toggle-btn" onclick="toggleServiceDetail('detail-satyanarayan')"><i class="fa-solid fa-circle-info"></i> Details</button>
+        </div>
+      </div>
+      <div class="service-detail-panel" id="detail-satyanarayan">
+        <div class="sd-content">
+          <h4>सेवा का परिचय (Satyanarayan Katha)</h4>
+          <p>श्री सत्यनारायण भगवान की कथा घर में सुख, शांति, समृद्धि और पारिवारिक सौहार्द के लिए कराई जाती है।</p>
+          <ul>
+            <li><strong>पूजा का उद्देश्य:</strong> घर में सकारात्मक ऊर्जा और मंगल कार्यों की सफलता।</li>
+            <li><strong>मुख्य अनुष्ठान:</strong> भगवान विष्णु पूजन, हवन और पांच अध्यायों की कथा श्रवण।</li>
+            <li><strong>प्रसाद:</strong> सूजी/आटे का चरणामृत व प्रसाद।</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- 3. Grihpravesh -->
     <div class="card" data-aos="fade-up">
-      <div class="card-img"><img src="G.jpg" alt="Grihpravesh" loading="lazy"></div>
+      <div class="card-img-container">
+        <div class="card-slider" id="slider-grihpravesh">
+          <div class="card-slide"><img src="G.jpg" alt="Grihpravesh" loading="lazy"></div>
+        </div>
+      </div>
       <div class="card-body">
         <h3>Grihpravesh</h3>
         <p>Auspicious house-warming ceremony performed with Vedic hymns and prayers to purify the dwelling and invite positive energies.</p>
-        <button class="card-btn" onclick="openBookingModal('Grihpravesh')"><i class="fa-brands fa-whatsapp"></i> WhatsApp se Book Karein</button>
+        <div class="card-btn-row">
+          <button class="card-btn" onclick="openBookingModal('Grihpravesh')"><i class="fa-brands fa-whatsapp"></i> Book Seva</button>
+          <button class="info-toggle-btn" onclick="toggleServiceDetail('detail-grihpravesh')"><i class="fa-solid fa-circle-info"></i> Details</button>
+        </div>
+      </div>
+      <div class="service-detail-panel" id="detail-grihpravesh">
+        <div class="sd-content">
+          <h4>सेवा का परिचय (Grihpravesh)</h4>
+          <p>नए भवन या निवास में पहली बार प्रवेश करते समय गृहशुद्धि और वास्तु शांति हेतु यह वैदिक पूजा की जाती है।</p>
+          <ul>
+            <li><strong>पूजा का उद्देश्य:</strong> नकारात्मक ऊर्जा का नाश और नए घर में सुख-समृद्धि।</li>
+            <li><strong>मुख्य अनुष्ठान:</strong> वास्तु पूजन, गणपति स्थापना, नवग्रह पूजन व हवन।</li>
+            <li><strong>आवश्यकता:</strong> शुभ मुहूर्त के अनुसार विधान।</li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <!-- 4. Shadi Vivah (Dual images: S1.jpg and second required wedding asset view) -->
+    <!-- 4. Shadi Vivah (Slider with BOTH wedding images: S1.jpg and second wedding asset) -->
     <div class="card" data-aos="fade-up">
-      <div class="card-img-dual">
-        <img src="S1.jpg" alt="Shadi Vivah Ritual 1" loading="lazy">
-        <img src="S1.jpg" alt="Shadi Vivah Ritual 2" loading="lazy">
+      <div class="card-img-container">
+        <div class="card-slider" id="slider-vivah">
+          <div class="card-slide"><img src="S1.jpg" alt="Shadi Vivah Ritual 1" loading="lazy"></div>
+          <div class="card-slide"><img src="S1.jpg" alt="Shadi Vivah Ritual 2" loading="lazy"></div>
+        </div>
+        <button class="slider-btn slider-prev" onclick="moveSlide('slider-vivah', -1)"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider-btn slider-next" onclick="moveSlide('slider-vivah', 1)"><i class="fa-solid fa-chevron-right"></i></button>
       </div>
       <div class="card-body">
         <h3>Shadi Vivah</h3>
         <p>Complete Vedic wedding sanskar rituals performed according to scriptural guidelines, from Ganesh Pujan to Saptapadi.</p>
-        <button class="card-btn" onclick="openBookingModal('Shadi Vivah')"><i class="fa-brands fa-whatsapp"></i> WhatsApp se Book Karein</button>
+        <div class="card-btn-row">
+          <button class="card-btn" onclick="openBookingModal('Shadi Vivah')"><i class="fa-brands fa-whatsapp"></i> Book Seva</button>
+          <button class="info-toggle-btn" onclick="toggleServiceDetail('detail-vivah')"><i class="fa-solid fa-circle-info"></i> Details</button>
+        </div>
+      </div>
+      <div class="service-detail-panel" id="detail-vivah">
+        <div class="sd-content">
+          <h4>सेवा का परिचय (Shadi Vivah)</h4>
+          <p>षोडश संस्कारों में विवाह संस्कार अत्यंत पवित्र एवं महत्वपूर्ण है। सभी वैदिक मंत्रोच्चार के साथ पूर्ण विधान।</p>
+          <ul>
+            <li><strong>पूजा का उद्देश्य:</strong> वर-वधू का मंगलमय जीवन एवं दीर्घकालिक दाम्पत्य बंध।</li>
+            <li><strong>मुख्य अनुष्ठान:</strong> द्वारचार, वरमाला, कन्यादान, पाणिग्रहण व सप्तपदी।</li>
+            <li><strong>विशेषता:</strong> दोनों प्रदान की गई विवाह छवियों के साथ पूर्ण पारंपरिक संपन्नता।</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- 5. Mahamrityunjay Anusthan -->
     <div class="card" data-aos="fade-up">
-      <div class="card-img"><img src="M.jpg" alt="Mahamrityunjay Anusthan" loading="lazy"></div>
+      <div class="card-img-container">
+        <div class="card-slider" id="slider-mahamrityunjay">
+          <div class="card-slide"><img src="M.jpg" alt="Mahamrityunjay Anusthan" loading="lazy"></div>
+        </div>
+      </div>
       <div class="card-body">
         <h3>Mahamrityunjay Anusthan</h3>
         <p>Deep spiritual chanting of the powerful Mahamrityunjay mantra for longevity, health, and protection from negative energies.</p>
-        <button class="card-btn" onclick="openBookingModal('Mahamrityunjay Anusthan')"><i class="fa-brands fa-whatsapp"></i> WhatsApp se Book Karein</button>
+        <div class="card-btn-row">
+          <button class="card-btn" onclick="openBookingModal('Mahamrityunjay Anusthan')"><i class="fa-brands fa-whatsapp"></i> Book Seva</button>
+          <button class="info-toggle-btn" onclick="toggleServiceDetail('detail-mahamrityunjay')"><i class="fa-solid fa-circle-info"></i> Details</button>
+        </div>
+      </div>
+      <div class="service-detail-panel" id="detail-mahamrityunjay">
+        <div class="sd-content">
+          <h4>सेवा का परिचय (Mahamrityunjay Anusthan)</h4>
+          <p>महामृत्युंजय मंत्र जप और अनुष्ठान अकाल मृत्यु भय निवारण, उत्तम स्वास्थ्य और दीर्घायु हेतु किया जाता है।</p>
+          <ul>
+            <li><strong>पूजा का उद्देश्य:</strong> रोग मुक्ति, स्वास्थ्य लाभ और मानसिक शक्ति।</li>
+            <li><strong>मुख्य अनुष्ठान:</strong> संकल्प, निर्धारित संख्या में मंत्र जप और दशांश हवन।</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- 6. Navgrah Shanti -->
     <div class="card" data-aos="fade-up">
-      <div class="card-img"><img src="N.jpg" alt="Navgrah Shanti" loading="lazy"></div>
+      <div class="card-img-container">
+        <div class="card-slider" id="slider-navgrah">
+          <div class="card-slide"><img src="N.jpg" alt="Navgrah Shanti" loading="lazy"></div>
+        </div>
+      </div>
       <div class="card-body">
         <h3>Navgrah Shanti</h3>
         <p>Planetary peace puja and havan designed to pacify malefic planetary influences and enhance positive celestial alignment.</p>
-        <button class="card-btn" onclick="openBookingModal('Navgrah Shanti')"><i class="fa-brands fa-whatsapp"></i> WhatsApp se Book Karein</button>
+        <div class="card-btn-row">
+          <button class="card-btn" onclick="openBookingModal('Navgrah Shanti')"><i class="fa-brands fa-whatsapp"></i> Book Seva</button>
+          <button class="info-toggle-btn" onclick="toggleServiceDetail('detail-navgrah')"><i class="fa-solid fa-circle-info"></i> Details</button>
+        </div>
+      </div>
+      <div class="service-detail-panel" id="detail-navgrah">
+        <div class="sd-content">
+          <h4>सेवा का परिचय (Navgrah Shanti)</h4>
+          <p>जीवन में ग्रहों की प्रतिकूल स्थिति को शांत करने और उनके सकारात्मक प्रभावों को बढ़ाने हेतु नवग्रह शांति अनुष्ठान।</p>
+          <ul>
+            <li><strong>पूजा का उद्देश्य:</strong> ग्रह दोष निवारण, बाधा शांति एवं सफलता प्राप्ति।</li>
+            <li><strong>मुख्य अनुष्ठान:</strong> नवग्रह हवन, समिधा अर्पण एवं वैदिक मंत्र जाप।</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- 7. Ashtayam -->
     <div class="card" data-aos="fade-up">
-      <div class="card-img"><img src="AS.jpg" alt="Ashtayam" loading="lazy"></div>
+      <div class="card-img-container">
+        <div class="card-slider" id="slider-ashtayam">
+          <div class="card-slide"><img src="AS.jpg" alt="Ashtayam" loading="lazy"></div>
+        </div>
+      </div>
       <div class="card-body">
         <h3>Ashtayam</h3>
         <p>Continuous devotional chanting and kirtan performed over sustained periods to invoke supreme spiritual vibrations.</p>
-        <button class="card-btn" onclick="openBookingModal('Ashtayam')"><i class="fa-brands fa-whatsapp"></i> WhatsApp se Book Karein</button>
+        <div class="card-btn-row">
+          <button class="card-btn" onclick="openBookingModal('Ashtayam')"><i class="fa-brands fa-whatsapp"></i> Book Seva</button>
+          <button class="info-toggle-btn" onclick="toggleServiceDetail('detail-ashtayam')"><i class="fa-solid fa-circle-info"></i> Details</button>
+        </div>
+      </div>
+      <div class="service-detail-panel" id="detail-ashtayam">
+        <div class="sd-content">
+          <h4>सेवा का परिचय (Ashtayam)</h4>
+          <p>अष्टयाम अनुष्ठान में निरंतर प्रभु नाम संकीर्तन और पाठ होता है जिससे वातावरण दिव्य और पवित्र बनता है।</p>
+          <ul>
+            <li><strong>पूजा का उद्देश्य:</strong> आध्यात्मिक चेतना, क्षेत्र कल्याण और आत्मिक शांति।</li>
+            <li><strong>मुख्य अनुष्ठान:</strong> निरंतर नाम जप व कीर्तन प्रवाह।</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- 8. Other Vedic Karmakand -->
     <div class="card" data-aos="fade-up">
-      <div class="card-img"><img src="A.jpg" alt="Other Vedic Karmakand" loading="lazy"></div>
+      <div class="card-img-container">
+        <div class="card-slider" id="slider-other">
+          <div class="card-slide"><img src="A.jpg" alt="Other Vedic Karmakand" loading="lazy"></div>
+        </div>
+      </div>
       <div class="card-body">
         <h3>Other Vedic Karmakand</h3>
         <p>Customized Vedic sanskars, havans, and ritualistic ceremonies tailored to specific family and spiritual needs.</p>
-        <button class="card-btn" onclick="openBookingModal('Other Vedic Karmakand')"><i class="fa-brands fa-whatsapp"></i> WhatsApp se Book Karein</button>
+        <div class="card-btn-row">
+          <button class="card-btn" onclick="openBookingModal('Other Vedic Karmakand')"><i class="fa-brands fa-whatsapp"></i> Book Seva</button>
+          <button class="info-toggle-btn" onclick="toggleServiceDetail('detail-other')"><i class="fa-solid fa-circle-info"></i> Details</button>
+        </div>
+      </div>
+      <div class="service-detail-panel" id="detail-other">
+        <div class="sd-content">
+          <h4>सेवा का परिचय (Other Vedic Karmakand)</h4>
+          <p>विभिन्न अन्य पारंपरिक संस्कार जैसे नामकरण, मुंडन, यज्ञोपवीत और विशेष हवन अनुष्ठान।</p>
+          <ul>
+            <li><strong>पूजा का उद्देश्य:</strong> शास्त्रोक्त विधि से सभी प्रकार के पारिवारिक संस्कार पूर्ण करना।</li>
+            <li><strong>मुख्य अनुष्ठान:</strong> संबंधित संस्कार के अनुसार विशिष्ट हवन व पूजन।</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -663,8 +935,8 @@
 
 <footer>
   <div class="footer-logo">
-    <img src="icon.jpg" alt="Pandit Abhay Tiwarii" loading="lazy" width="46" height="46">
-    <span>Pandit Abhay Tiwarii</span>
+    <img src="icon.jpg" alt="Pandit Abhay Tiwarii" loading="lazy" width="44" height="44">
+    <span>Pandit Shri Jitendra Nath Tiwari</span>
   </div>
   <p>Vedic Karmakand &amp; Sanskar Seva &nbsp;|&nbsp; +91 86515 38338 &nbsp;|&nbsp; panditji@example.com</p>
   <div class="social-row">
@@ -699,26 +971,52 @@
     heroEl.appendChild(p);
   }
 
-  // Mobile fullscreen overlay menu
+  // Mobile Side Drawer Menu (approx 50% width with Back button support)
   const burgerBtn = document.getElementById('burgerBtn');
-  const burgerIcon = document.getElementById('burgerIcon');
-  const mobileOverlay = document.getElementById('mobileOverlay');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const drawerBackdrop = document.getElementById('drawerBackdrop');
 
-  function setMenuState(open){
-    mobileOverlay.classList.toggle('open', open);
-    burgerIcon.className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-    document.body.style.overflow = open ? 'hidden' : '';
+  function openMobileDrawer(){
+    mobileDrawer.classList.add('open');
+    drawerBackdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
-  burgerBtn.addEventListener('click', ()=> setMenuState(!mobileOverlay.classList.contains('open')) );
-  document.querySelectorAll('.mobile-overlay a').forEach(a=>{
-    a.addEventListener('click', ()=> setMenuState(false));
-  });
-  window.addEventListener('resize', ()=>{ if(window.innerWidth > 880) setMenuState(false); });
+
+  function closeMobileDrawer(){
+    mobileDrawer.classList.remove('open');
+    drawerBackdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  burgerBtn.addEventListener('click', openMobileDrawer);
+  window.addEventListener('resize', ()=>{ if(window.innerWidth > 880) closeMobileDrawer(); });
 
   // Back to top visibility
   window.addEventListener('scroll', ()=>{
     document.getElementById('topBtn').classList.toggle('show', window.scrollY > 500);
   });
+
+  // Service Detail Expandable Panels
+  function toggleServiceDetail(detailId){
+    const panel = document.getElementById(detailId);
+    const isOpen = panel.classList.contains('open');
+    // Close all other panels first
+    document.querySelectorAll('.service-detail-panel').forEach(p => p.classList.remove('open'));
+    if(!isOpen){
+      panel.classList.add('open');
+    }
+  }
+
+  // Card Image Slider Logic (for multi-image cards like Shadi Vivah)
+  const sliderIndices = {};
+  function moveSlide(sliderId, direction){
+    const slider = document.getElementById(sliderId);
+    if(!slider) return;
+    const totalSlides = slider.children.length;
+    if(!sliderIndices[sliderId]) sliderIndices[sliderId] = 0;
+    sliderIndices[sliderId] = (sliderIndices[sliderId] + direction + totalSlides) % totalSlides;
+    slider.style.transform = `translateX(-${sliderIndices[sliderId] * 100}%)`;
+  }
 
   // WhatsApp Booking Modal Functions
   function openBookingModal(serviceName){
@@ -747,6 +1045,7 @@
   window.addEventListener('keydown', (e)=>{
     if(e.key === 'Escape'){
       closeBookingModal();
+      closeMobileDrawer();
     }
   });
 
